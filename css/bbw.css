@@ -36,25 +36,81 @@
   font-stretch: normal;
 }
 
+/* DRUK! */
+/* Druk Medium */
+@font-face {
+  font-family: 'Druk Web';
+  src: url('Druk-Medium-Web.eot');
+  src: url('Druk-Medium-Web.eot?#iefix') format('embedded-opentype'),
+     url('Druk-Medium-Web.woff') format('woff'),
+     url('Druk-Medium-Web.ttf') format('truetype'),
+     url('Druk-Medium-Web.svg#Druk Web') format('svg');
+  font-weight:  500;
+  font-style:   normal;
+  font-stretch: normal;
+}
+/* Druk Wide Super */
+@font-face {
+  font-family: 'Druk Wide Web';
+  src: url('DrukWide-Super-Web.eot');
+  src: url('DrukWide-Super-Web.eot?#iefix') format('embedded-opentype'),
+     url('DrukWide-Super-Web.woff') format('woff'),
+     url('DrukWide-Super-Web.ttf') format('truetype'),
+     url('DrukWide-Super-Web.svg#Druk Wide Web') format('svg');
+  font-weight:  900;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
 /* */
 
+body {
+
+}
+
 .item {
-  background: lightgray;
   margin: 10px;
-  border: 1px solid black;
   float: left;
   position: relative;
+  background: white;
+  transition: -webkit-transform 0.2s;
 }
+
+.wobble0:hover { -webkit-transform: rotate(6deg); }
+.wobble1:hover { -webkit-transform: rotate(-3deg); }
+.wobble2:hover { -webkit-transform: rotate(-9deg); }
+.wobble3:hover { -webkit-transform: rotate(1deg); }
+.wobble4:hover { -webkit-transform: scale(1.1); }
+.wobble5:hover { -webkit-transform: scale(0.9); }
+.wobble6:hover { -webkit-transform: skew(5deg,9deg); }
 
 .num {
   position: absolute;
-  top: 0;
-  left: 0;
   background: white;
   border: 1px solid black;
+  padding: 10px;
+
+  font-family: 'Druk Web';
+  font-weight:  500;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 16pt;
+}
+
+.num0 { top: -5px; left: -5px; }
+.num1 { top: -5px; right: -5px; }
+.num2 { bottom: -5px; left: -5px; }
+.num3 { bottom: -5px; right: -5px; }
+
+.hed {
+  font-family: times;
+  font-weight: bold;
+  font-size: 10pt;
+  padding: 10px 10px 0 10px;
 }
 
 .dek {
   font-family: helvetica;
-  font-size: 10pt;
+  font-size: 9pt;
+  padding: 10px;
 }

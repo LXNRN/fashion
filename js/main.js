@@ -2,8 +2,8 @@ $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
   var container = d3.select("#container");
-  var width = d3.random.normal(300, 100);
-  var height = d3.random.normal(400, 200);
+  var width = d3.random.normal(250, 100);
+  var height = d3.random.normal(300, 150);
   var characters = d3.random.normal(160, 60);
   var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commodo pulvinar leo, ac consectetur arcu mattis vel. Donec dapibus, orci eget ullamcorper egestas, felis ex elementum est, ut fermentum leo tortor nec felis. Nulla euismod commodo dui, sed pretium tortor luctus nec. Integer rhoncus metus enim, et vehicula nulla ullamcorper eu.";
 
@@ -13,16 +13,18 @@ $( document ).ready(function() {
     var h = Math.round(height());
     var c = Math.round(characters());
 
-    var element = container
+    var item = container
       .append("div")
       .classed("item", true)
-      .style("width", w+"px");
+      .classed(randomItemClass(), true)
+      .style("width", w+"px")
+      .style("border", randomBorder());
 
-    element.append("img").attr("src", "http://placekitten.com/"+w+"/"+h);
+    item.append("img").attr("src", "http://placekitten.com/"+w+"/"+h);
 
-    element.append("div").classed("num", true).text(i);
-
-    element.append("div").classed("dek", true).text(lorem.substr(0,c));
+    item.append("div").classed("num", true).text(i).classed(randomNumClass(), true);
+    item.append("div").classed("hed", true).text(lorem.substr(0,c/4));
+    item.append("div").classed("dek", true).text(lorem.substr(0,c));
 
   }
 
@@ -37,5 +39,18 @@ $( document ).ready(function() {
 });
 
 function randomBorder() {
-  return
+  var styles = ["dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset"];
+  var colors = ["black", "gray", "#f0f", "#0ff", "#0f0", "#ff0"];
+  var style = styles[Math.floor(Math.random()*styles.length)];
+  var width = Math.floor(Math.random() * 3 + 1);
+  var color = colors[Math.floor(Math.random()*colors.length)];
+  return width + "px " + style + " " + "black";
+}
+
+function randomItemClass() {
+  return "wobble" + Math.floor(Math.random() * 7);
+}
+
+function randomNumClass() {
+  return "num" + Math.floor(Math.random()*4);
 }
