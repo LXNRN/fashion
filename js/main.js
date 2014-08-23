@@ -38,6 +38,13 @@ $( document ).ready(function() {
 
 });
 
+$(".answer").click(function() {
+  var yes = Math.floor(Math.random()*100);
+  $(".yes").css("width", yes+"%");
+  $(".no").css("width", (100-yes)+"%");
+  $(".answer").addClass("final");
+})
+
 function randomBorder() {
   var styles = ["dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset"];
   var colors = ["black", "gray", "#f0f", "#0ff", "#0f0", "#ff0"];

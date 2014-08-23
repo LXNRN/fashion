@@ -114,3 +114,36 @@ body {
   font-size: 9pt;
   padding: 10px;
 }
+
+/* POLL */
+
+.poll {
+  text-align: center;
+  font-family: helvetica;
+}
+
+.question {
+  background: lightblue;
+}
+
+.answer {
+  float: left;
+  width: 50%;
+  transition: width 1s;
+}
+
+.yes {
+  background: lightgreen;
+}
+.yes:hover, .yes.final {
+  cursor: pointer;
+  background: #0f0;
+}
+
+.no {
+  background: #f99;
+}
+.no:hover, .no.final {
+  cursor: pointer;
+  background: red;
+}
