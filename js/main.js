@@ -2,8 +2,8 @@ $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
   var container = d3.select("#container");
-  var width = d3.random.normal(250, 100);
-  var height = d3.random.normal(300, 150);
+  var width = d3.random.normal(350, 100);
+  var height = d3.random.normal(350, 100);
   var characters = d3.random.normal(160, 60);
   var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commodo pulvinar leo, ac consectetur arcu mattis vel. Donec dapibus, orci eget ullamcorper egestas, felis ex elementum est, ut fermentum leo tortor nec felis. Nulla euismod commodo dui, sed pretium tortor luctus nec. Integer rhoncus metus enim, et vehicula nulla ullamcorper eu.";
 
@@ -44,7 +44,7 @@ function randomBorder() {
   var style = styles[Math.floor(Math.random()*styles.length)];
   var width = Math.floor(Math.random() * 3 + 1);
   var color = colors[Math.floor(Math.random()*colors.length)];
-  return width + "px " + style + " " + "black";
+  return width + "px " + style + " " + color;
 }
 
 function randomItemClass() {
