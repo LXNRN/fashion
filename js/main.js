@@ -17,7 +17,7 @@ function item() {
   this.img = "http://placekitten.com/"+w+"/"+h;
 }
 
-for(var i=1; i<10; i++) {
+for(var i=1; i<20; i++) {
   data.push(new item());
 }
 
@@ -27,9 +27,14 @@ $( document ).ready(function() {
   var container = $("#container");
 
   var templateItem = $("#template-item").html();
+  var templateQuote = $("#template-quote").html();
   var templatePoll = $("#template-poll").html();
   data.forEach(function(item, index) {
-    container.append(_.template(templateItem, {"item": item, "index": index}))
+    if(item.type == "quote") {
+      container.append(_.template(templateQuote, {"item": item, "index": index}))
+    } else {
+      container.append(_.template(templateItem, {"item": item, "index": index}))
+    }
   })
 
   var masonry;
@@ -42,30 +47,16 @@ $( document ).ready(function() {
 
 });
 
-$(document).on("click", ".poll.unresolved .answer", function() {
+$(document).on("click", ".poll.unresolved .answer", function(event) {
 
-  $(".poll").removeClass("unresolved");
-  $(".poll").addClass("resolved");
+  console.log(event);
+  var poll = $(event.target).closest('.poll');
+
+  poll.removeClass("unresolved");
+  poll.addClass("resolved");
 
   var yes = Math.floor(Math.random()*100);
-  $(".yes").css("width", yes+"%");
-  $(".no").css("width", (100-yes)+"%");
-  $(".answer").addClass("final");
+  poll.find(".yes").css("width", yes+"%");
+  poll.find(".no").css("width", (100-yes)+"%");
+  poll.find(".answer").addClass("final");
 })
-
-function randomBorder() {
-  var styles = ["dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset"];
-  var colors = ["black", "gray", "#f0f", "#0ff", "#0f0", "#ff0"];
-  var style = styles[Math.floor(Math.random()*styles.length)];
-  var width = Math.floor(Math.random() * 3 + 1);
-  var color = colors[Math.floor(Math.random()*colors.length)];
-  return width + "px " + style + " " + color;
-}
-
-function randomItemClass() {
-  return "wobble" + Math.floor(Math.random() * 7);
-}
-
-function randomNumClass() {
-  return "num" + Math.floor(Math.random()*4);
-}
