@@ -47,13 +47,16 @@ $( document ).ready(function() {
 
 });
 
-$(document).on("click", ".poll.unresolved .answer", function() {
+$(document).on("click", ".poll.unresolved .answer", function(event) {
 
-  $(".poll").removeClass("unresolved");
-  $(".poll").addClass("resolved");
+  console.log(event);
+  var poll = $(event.target).closest('.poll');
+
+  poll.removeClass("unresolved");
+  poll.addClass("resolved");
 
   var yes = Math.floor(Math.random()*100);
-  $(".yes").css("width", yes+"%");
-  $(".no").css("width", (100-yes)+"%");
-  $(".answer").addClass("final");
+  poll.find(".yes").css("width", yes+"%");
+  poll.find(".no").css("width", (100-yes)+"%");
+  poll.find(".answer").addClass("final");
 })
