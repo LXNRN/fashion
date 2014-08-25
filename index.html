@@ -25,11 +25,13 @@
 
   <script type="text/html" id="template-item">
   <div class="item <%= item.type %>">
+    <div class="num num1"><%= index %></div>
     <img src="<%= item.img %>">
-    <div class="num"><%= index %></div>
-    <div class="hed"><%= item.hed %></div>
-    <div class="dek"><%= item.dek %></div>
-    <div class="credit"><%= item.credit %></div>
+    <div class="caption">
+      <div class="hed"><%= item.hed %></div>
+      <div class="dek"><%= item.dek %></div>
+      <div class="credit"><%= item.credit %></div>
+    </div>
     <% if(item.type == 'poll') { %>
 
     <% } %>

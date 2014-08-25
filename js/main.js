@@ -33,8 +33,8 @@ $( document ).ready(function() {
   })
 
   var masonry;
-  imagesLoaded(container[0][0], function() {
-    masonry = new Masonry( container[0][0], {
+  imagesLoaded(container[0], function() {
+    masonry = new Masonry( container[0], {
       columnWidth: 1,
       itemSelector: ".item"
     });
