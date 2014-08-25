@@ -76,12 +76,13 @@ body {
   transition: -webkit-transform 0.2s;
   display: table;
   border: 2px solid black;
+  font-family: times;
+  font-size: 10pt;
 }
 
 .caption {
   display:table-caption;
   caption-side:bottom;
-  font-family: times;
   padding: 10px;
   border: 2px solid black;
   border-top-width: 0;
@@ -89,11 +90,9 @@ body {
 
 .hed {
   font-weight: bold;
-  font-size: 10pt;
 }
 
 .dek {
-  font-size: 10pt;
 }
 
 .credit {
@@ -133,56 +132,65 @@ body {
 
 /* POLL */
 
-.poll, .question, .answers, .answer {
+.poll, .answers, .answer {
   box-sizing: border-box;
 }
 
 .poll {
-  text-align: center;
-  font-family: helvetica;
-  background: #eee;
+  background: white;
+  border-top: 2px solid black;
 }
 
 .question {
+  padding: 10px 10px 0 10px;
+  font-weight: bold;
 }
 
-.answers {
-  transition: padding 0.1s;
-}
-
-.poll.unresolved .answers {
-  padding: 2px;
-}
-
-.poll.unresolved .answer {
+.poll.unresolved .answer div {
   border-radius: 3px;
   cursor: pointer;
 }
 
-.poll.resolved .answers {
-  padding: 0;
-}
-.poll.resolved .answer {
+.poll.resolved .answer div {
   corner-radius: 0;
 }
 
 .answer {
   display: inline-block;
   width: 50%;
-  transition: width 1s, border-radius 1s;
-
+  transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.yes {
+.answer div {
+  transition: width .1s linear, border-radius .1s linear, padding .1s linear;
+}
+
+.poll.unresolved .answer {
+  padding: 5px;
+}
+
+.poll.resolved .answer {
+  padding: 0;
+}
+
+.poll.unresolved .answer div {
+  padding: 5px;
+}
+
+.poll.resolved .answer div {
+  padding: 10px;
+}
+
+.yes div {
   background: lightgreen;
 }
-.yes:hover, .yes.final {
+.yes:hover div, .yes.final div {
   background: #0f0;
 }
 
-.no {
+.no div {
   background: #f99;
 }
-.no:hover, .no.final {
+.no:hover div, .no.final div {
   background: red;
 }
