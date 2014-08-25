@@ -21,29 +21,37 @@
 
 <body>
 
-  <div id="container">
+  <div id="container"></div>
 
-    <div class="item wobble1" style="width: 354px; border: 1px groove rgb(255, 0, 255); position: absolute; left: 0px; top: 0px;">
-      <img src="http://placekitten.com/354/322">
-      <div class="num num1">1</div>
-      <div class="hed">Lorem ipsum dolor sit amet, cons</div>
-      <div class="dek">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commo</div>
-      <div class="poll">
-        <div class="question">Could you wear this?</div>
-        <div class="answers">
-          <div class="answer yes">Yes</div>
-          <div class="answer no">No</div>
-        </div>
-      </div>
+  <script type="text/html" id="template-item">
+  <div class="item <%= item.type %>">
+    <div class="num num1"><%= index %></div>
+    <img src="<%= item.img %>">
+    <div class="caption">
+      <div class="hed"><%= item.hed %></div>
+      <div class="dek"><%= item.dek %></div>
+      <div class="credit"><%= item.credit %></div>
     </div>
+    <% if(item.type == 'poll') { %>
 
+    <% } %>
   </div>
+  </script>
 
+  <script type="text/html" id="template-poll">
+  <div class="poll unresolved">
+    <div class="question">Could you wear this?</div>
+    <div class="answers">
+      <div class="answer yes">Yes</div><div class="answer no">No</div>
+    </div>
+  </div>
+  </script>
+
+  <script src="js/vendor/underscore-min.js"></script>
   <script src="js/vendor/d3.min.js"></script>
   <script src="js/vendor/masonry.pkgd.min.js"></script>
   <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
