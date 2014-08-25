@@ -17,7 +17,7 @@ function item() {
   this.img = "http://placekitten.com/"+w+"/"+h;
 }
 
-for(var i=1; i<10; i++) {
+for(var i=1; i<20; i++) {
   data.push(new item());
 }
 
@@ -27,9 +27,14 @@ $( document ).ready(function() {
   var container = $("#container");
 
   var templateItem = $("#template-item").html();
+  var templateQuote = $("#template-quote").html();
   var templatePoll = $("#template-poll").html();
   data.forEach(function(item, index) {
-    container.append(_.template(templateItem, {"item": item, "index": index}))
+    if(item.type == "quote") {
+      container.append(_.template(templateQuote, {"item": item, "index": index}))
+    } else {
+      container.append(_.template(templateItem, {"item": item, "index": index}))
+    }
   })
 
   var masonry;

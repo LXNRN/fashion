@@ -117,6 +117,34 @@ body {
   font-size: 8pt;
 }
 
+/* QUOTES */
+
+.item.quote {
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+}
+
+.quote-content {
+  font-family: 'Druk Web';
+  font-weight:  500;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 16pt;
+}
+
+.quote-attribution {
+  font-family: times;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+.quote-credit {
+  font-family: times;
+  font-size: 8pt;
+  font-style: italic;
+}
+
 /* POLL */
 
 .poll, .question, .answers, .answer {
@@ -172,6 +200,8 @@ body {
 .no:hover, .no.final {
   background: red;
 }
+
+/* RANDOMIZATION FUN */
 
 .num0 { top: -5px; left: -5px; }
 .num1 { top: -5px; right: -5px; }
