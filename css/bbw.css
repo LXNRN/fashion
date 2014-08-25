@@ -78,20 +78,6 @@ body {
   border: 2px solid black;
 }
 
-
-.num {
-  position: absolute;
-  background: white;
-  border: 2px solid black;
-  padding: 10px;
-
-  font-family: 'Druk Web';
-  font-weight:  500;
-  font-style:   normal;
-  font-stretch: normal;
-  font-size: 16pt;
-}
-
 .caption {
   display:table-caption;
   caption-side:bottom;
@@ -200,18 +186,3 @@ body {
 .no:hover, .no.final {
   background: red;
 }
-
-/* RANDOMIZATION FUN */
-
-.num0 { top: -5px; left: -5px; }
-.num1 { top: -5px; right: -5px; }
-.num2 { bottom: -5px; left: -5px; }
-.num3 { bottom: -5px; right: -5px; }
-
-.wobble0:hover { -webkit-transform: rotate(6deg); }
-.wobble1:hover { -webkit-transform: rotate(-3deg); }
-.wobble2:hover { -webkit-transform: rotate(-9deg); }
-.wobble3:hover { -webkit-transform: rotate(1deg); }
-.wobble4:hover { -webkit-transform: scale(1.1); }
-.wobble5:hover { -webkit-transform: scale(0.9); }
-.wobble6:hover { -webkit-transform: skew(5deg,9deg); }

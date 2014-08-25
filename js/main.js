@@ -57,20 +57,3 @@ $(document).on("click", ".poll.unresolved .answer", function() {
   $(".no").css("width", (100-yes)+"%");
   $(".answer").addClass("final");
 })
-
-function randomBorder() {
-  var styles = ["dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset"];
-  var colors = ["black", "gray", "#f0f", "#0ff", "#0f0", "#ff0"];
-  var style = styles[Math.floor(Math.random()*styles.length)];
-  var width = Math.floor(Math.random() * 3 + 1);
-  var color = colors[Math.floor(Math.random()*colors.length)];
-  return width + "px " + style + " " + color;
-}
-
-function randomItemClass() {
-  return "wobble" + Math.floor(Math.random() * 7);
-}
-
-function randomNumClass() {
-  return "num" + Math.floor(Math.random()*4);
-}

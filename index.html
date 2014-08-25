@@ -24,8 +24,7 @@
   <div id="container"></div>
 
   <script type="text/html" id="template-item">
-  <div class="item <%= item.type %>">
-    <div class="num num1"><%= index %></div>
+  <div id="<%= index %>" class="item <%= item.type %>">
     <img src="<%= item.img %>">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
@@ -44,8 +43,7 @@
   </script>
 
   <script type="text/html" id="template-quote">
-  <div class="item <%= item.type %>">
-    <div class="num num1"><%= index %></div>
+  <div id="<%= index %>" class="item <%= item.type %>">
     <div class="quote-content">“<%= item.dek %>”</div>
     <div class="quote-attribution"><%= item.hed %></div>
     <div class="quote-credit"><%= item.credit %></div>
