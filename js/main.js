@@ -1,32 +1,36 @@
+var data = [];
+
+var width = d3.random.normal(350, 100);
+var height = d3.random.normal(350, 100);
+var characters = d3.random.normal(160, 60);
+var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commodo pulvinar leo, ac consectetur arcu mattis vel. Donec dapibus, orci eget ullamcorper egestas, felis ex elementum est, ut fermentum leo tortor nec felis. Nulla euismod commodo dui, sed pretium tortor luctus nec. Integer rhoncus metus enim, et vehicula nulla ullamcorper eu.";
+
+function item() {
+  var w = Math.round(width());
+  var h = Math.round(height());
+  var c = Math.round(characters());
+
+  this.type = _.sample(["general", "could-you-wear-this", "illustrated-guide", "brand-to-know", "real-person-problem", "quote"]);
+	this.hed = lorem.substr(0,c/4);
+	this.dek = lorem.substr(0,c);
+	this.credit = lorem.substr(0,c/2);
+  this.img = "http://placekitten.com/"+w+"/"+h;
+}
+
+for(var i=1; i<10; i++) {
+  data.push(new item());
+}
+
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
-  var container = d3.select("#container");
-  var width = d3.random.normal(350, 100);
-  var height = d3.random.normal(350, 100);
-  var characters = d3.random.normal(160, 60);
-  var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commodo pulvinar leo, ac consectetur arcu mattis vel. Donec dapibus, orci eget ullamcorper egestas, felis ex elementum est, ut fermentum leo tortor nec felis. Nulla euismod commodo dui, sed pretium tortor luctus nec. Integer rhoncus metus enim, et vehicula nulla ullamcorper eu.";
+  var container = $("#container");
 
-  for(var i=1; i<=50; i++) {
-
-    var w = Math.round(width());
-    var h = Math.round(height());
-    var c = Math.round(characters());
-
-    var item = container
-      .append("div")
-      .classed("item", true)
-      .classed(randomItemClass(), true)
-      .style("width", w+"px")
-      .style("border", randomBorder());
-
-    item.append("img").attr("src", "http://placekitten.com/"+w+"/"+h);
-
-    item.append("div").classed("num", true).text(i).classed(randomNumClass(), true);
-    item.append("div").classed("hed", true).text(lorem.substr(0,c/4));
-    item.append("div").classed("dek", true).text(lorem.substr(0,c));
-
-  }
+  var templateItem = $("#template-item").html();
+  var templatePoll = $("#template-poll").html();
+  data.forEach(function(item, index) {
+    container.append(_.template(templateItem, {"item": item, "index": index}))
+  })
 
   var masonry;
   imagesLoaded(container[0][0], function() {
@@ -38,7 +42,11 @@ $( document ).ready(function() {
 
 });
 
-$(".answer").click(function() {
+$(document).on("click", ".poll.unresolved .answer", function() {
+
+  $(".poll").removeClass("unresolved");
+  $(".poll").addClass("resolved");
+
   var yes = Math.floor(Math.random()*100);
   $(".yes").css("width", yes+"%");
   $(".no").css("width", (100-yes)+"%");
