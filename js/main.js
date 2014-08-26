@@ -51,12 +51,20 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
 
   console.log(event);
   var poll = $(event.target).closest('.poll');
+  var answer = $(event.target).closest('.answer');
 
   poll.removeClass("unresolved");
   poll.addClass("resolved");
 
-  var yes = Math.floor(Math.random()*100);
-  poll.find(".yes").css("width", yes+"%");
-  poll.find(".no").css("width", (100-yes)+"%");
   poll.find(".answer").addClass("final");
+  answer.addClass("selected");
+
+  var yes = Math.floor(Math.random()*100);
+
+  poll.find(".yes").css("width", yes+"%");
+  poll.find(".yes .percentage").text(yes+"%");
+
+  poll.find(".no").css("width", (100-yes)+"%");
+  poll.find(".no .percentage").text((100-yes)+"%");
+
 })

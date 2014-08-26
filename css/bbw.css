@@ -223,15 +223,12 @@ h2 {
 }
 
 .question {
-  padding: 10px 10px 0 10px;
+  padding: 10px;
   font-weight: bold;
 }
 
 .poll.unresolved .answer div {
   cursor: pointer;
-}
-
-.poll.resolved .answer div {
 }
 
 .answer {
@@ -247,23 +244,23 @@ h2 {
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.poll.unresolved .answer:hover div {
+.poll.unresolved .answer:hover div, .poll.resolved .answer.selected div {
   color: white;
   background: black;
 }
 
-.poll.unresolved .answer {
+.answer .percentage {
+  font-weight: normal;
+}
+
+.answer div {
   padding: 5px;
 }
 
-.poll.resolved .answer {
-  padding: 2px;
+.yes {
+  padding-right: 2px;
 }
 
-.poll.unresolved .answer div {
-  padding: 5px;
-}
-
-.poll.resolved .answer div {
-  padding: 8px;
+.no {
+  padding-left: 2px;
 }
