@@ -1,0 +1,178 @@
+/*! responsive-nav.js 1.0.32 by @viljamis */
+
+@font-face {
+  font-family: "responsivenav";
+  src:url("../icons/responsivenav.eot");
+  src:url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"),
+    url("../icons/responsivenav.ttf") format("truetype"),
+    url("../icons/responsivenav.woff") format("woff"),
+    url("../icons/responsivenav.svg#responsivenav") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav-collapse {
+  margin: 0 auto;
+  width: 970px;
+}
+
+.nav-collapse ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-collapse li {
+  width: 9%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+#social-tab {
+  height: 55px;
+  display: none;
+}
+.social-nav {
+  height: 45px;
+  margin-right: 2em;
+}
+
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.nav-collapse br {
+  display: none;
+}
+
+.nav-collapse.opened {
+  max-height: 9999px;
+}
+
+.disable-pointer-events {
+  pointer-events: none !important;
+}
+
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media screen and (min-width: 895px) {
+
+
+  .js .nav-collapse {
+    position: relative;
+  }
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.nav-collapse li {
+  height: 35px;
+  padding: 5px 5px 5px 5px;
+}
+
+.nav-collapse a {
+  color: white;
+  font-family: 'BWHaasRegular';
+  font-size: 1em;
+}
+
+.nav-toggle:before {
+  color: #f4421a; /* Edit this to change the icon color */
+  font-family: "responsivenav", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 40px;
+  text-transform: none;
+  position: absolute;
+  content: "≡";
+  text-indent: 0;
+  text-align: right;
+  line-height: 55px;
+  speak: none;
+  width: 100%;
+  top: 1%;
+  left: -5%;
+}
+
+
+#global {
+  background: #0072bc;
+}
+
+#companies {
+  background: #88307f;
+}
+
+#politics {
+  background: #00aaad;
+}
+
+#tech {
+  background: #ed1c24;
+}
+
+#markets {
+  background: #8dc63f;
+}
+
+#innovation {
+  background: #c8215d;
+}
+
+#life {
+  background: #faa61a;
+}
+
+#b-school {
+  background: #20409a;
+}
+
+#small-biz {
+  background: #6b7b84;
+}
+
+#video {
+  background: #f26522;
+
+}
+
+@media (max-width: 895px) {
+
+  #social-tab {
+    display: block;
+  }
+
+  #header-social {
+    display: none;
+  }
+
+
+  .nav-collapse li {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+}

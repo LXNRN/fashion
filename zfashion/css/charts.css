@@ -17,7 +17,7 @@
 }
 
 .chart.bar .y.axis .tick line {
-  stroke: #afa;
+  stroke: #eee;
 }
 
 .chart.bar .y.axis {
@@ -26,12 +26,4 @@
 
 .chart.bar .annotation {
   text-anchor: middle;
-}
-
-.chart.bar .bar {
-  fill: #0f0;
-}
-
-.chart.bar .bar text {
-  fill: black;
 }
