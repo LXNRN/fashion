@@ -66,6 +66,7 @@
 
 body {
 background-image: url(../img/bg.png);
+background-size: 409px 409px;
 }
 
 .item {
