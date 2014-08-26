@@ -29,16 +29,16 @@
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
       <div class="dek"><%= item.dek %></div>
+      <% if(item.type == 'could-you-wear-this') { %>
+        <div class="poll unresolved">
+          <div class="question">Could you wear this?</div>
+          <div class="answers">
+            <div class="answer yes"><div>Yes</div></div><div class="answer no"><div>No</div></div>
+          </div>
+        </div>
+      <% } %>
       <div class="credit"><%= item.credit %></div>
     </div>
-    <% if(item.type == 'could-you-wear-this') { %>
-      <div class="poll unresolved">
-        <div class="question">Could you wear this?</div>
-        <div class="answers">
-          <div class="answer yes"><div>Yes</div></div><div class="answer no"><div>No</div></div>
-        </div>
-      </div>
-    <% } %>
   </div>
   </script>
 

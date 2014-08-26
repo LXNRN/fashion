@@ -86,6 +86,7 @@ body {
   padding: 10px;
   border: 2px solid black;
   border-top-width: 0;
+  line-height: 12pt;
 }
 
 .hed {
@@ -96,18 +97,19 @@ body {
 }
 
 .credit {
-  margin-top: 5px;
-  padding-top: 5px;
-  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #000;
   font-size: 8pt;
+  line-height: 10pt;
 }
 
 /* QUOTES */
 
 .item.quote {
   text-align: center;
-  width: 200px;
-  padding: 10px;
+  width: 250px;
+  padding: 20px;
 }
 
 .quote-content {
@@ -115,18 +117,23 @@ body {
   font-weight:  500;
   font-style:   normal;
   font-stretch: normal;
-  font-size: 16pt;
+  font-size: 24pt;
+  line-height: 25pt;
+  letter-spacing: .5px;
 }
 
 .quote-attribution {
   font-family: times;
   font-size: 10pt;
+  line-height: 12pt;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .quote-credit {
   font-family: times;
-  font-size: 8pt;
+  font-size: 10pt;
+  line-height: 12pt;
   font-style: italic;
 }
 
@@ -139,6 +146,9 @@ body {
 .poll {
   background: white;
   border-top: 2px solid black;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .question {
@@ -147,12 +157,10 @@ body {
 }
 
 .poll.unresolved .answer div {
-  border-radius: 3px;
   cursor: pointer;
 }
 
 .poll.resolved .answer div {
-  corner-radius: 0;
 }
 
 .answer {
@@ -162,7 +170,15 @@ body {
 }
 
 .answer div {
+  border: 2px solid black;
+  text-transform: uppercase;
+  overflow: hidden;
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
+}
+
+.poll.unresolved .answer:hover div {
+  color: white;
+  background: black;
 }
 
 .poll.unresolved .answer {
@@ -170,7 +186,7 @@ body {
 }
 
 .poll.resolved .answer {
-  padding: 0;
+  padding: 2px;
 }
 
 .poll.unresolved .answer div {
@@ -178,10 +194,10 @@ body {
 }
 
 .poll.resolved .answer div {
-  padding: 10px;
+  padding: 8px;
 }
 
-.yes div {
+/*.yes div {
   background: lightgreen;
 }
 .yes:hover div, .yes.final div {
@@ -193,4 +209,4 @@ body {
 }
 .no:hover div, .no.final div {
   background: red;
-}
+}*/
