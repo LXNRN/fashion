@@ -17,7 +17,7 @@ function item() {
   this.img = "http://placekitten.com/"+w+"/"+h;
 }
 
-for(var i=1; i<20; i++) {
+for(var i=1; i<=50; i++) {
   data.push(new item());
 }
 
