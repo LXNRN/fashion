@@ -136,7 +136,10 @@ function analytics(meta) {
 // SHARING //
 /////////////
 
-function shareFacebook(shareText) {
+function shareFacebook(shareText, shareURL) {
+  if (arguments.length == 1) {
+    shareURL = document.URL;
+  }
   event.preventDefault()
   var textString = shareText
   var text = encodeURIComponent(textString)
@@ -144,7 +147,7 @@ function shareFacebook(shareText) {
       height = 400,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = "http://www.facebook.com/sharer/sharer.php?u=" + text + "&url=" + document.URL,
+      url    = "http://www.facebook.com/sharer/sharer.php?u=" + text + "&url=" + shareURL,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -156,7 +159,10 @@ function shareFacebook(shareText) {
   return false;
 }
 
-function shareTwitter(shareText) {
+function shareTwitter(shareText, shareURL) {
+  if (arguments.length == 1) {
+    shareURL = document.URL;
+  }
   event.preventDefault()
   var textString = shareText
   var text = encodeURIComponent(textString)
@@ -164,7 +170,7 @@ function shareTwitter(shareText) {
       height = 420,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      articleUrl = encodeURIComponent(document.URL),
+      articleUrl = encodeURIComponent(shareURL),
       url    = "http://twitter.com/share?text=" + text + "&url=" + articleUrl
       opts   = 'status=1' +
                ',width='  + width  +
@@ -177,7 +183,10 @@ function shareTwitter(shareText) {
   return false;
 }
 
-function shareLinkedin(shareText) {
+function shareLinkedIn(shareText, shareURL) {
+  if (arguments.length == 1) {
+    shareURL = document.URL;
+  }
   event.preventDefault()
   var textString = shareText
   var text = encodeURIComponent(textString)
@@ -185,7 +194,7 @@ function shareLinkedin(shareText) {
       height = 420,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      articleUrl = encodeURIComponent(document.URL),
+      articleUrl = encodeURIComponent(shareURL),
       url    = "http://www.linkedin.com/shareArticle?summary=" + articleUrl
       opts   = 'status=1' +
                ',width='  + width  +

@@ -70,7 +70,7 @@ $( document ).ready(function() {
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
 
   $('.tweet').click(function(event) {
-    shareTwitter($(event.currentTarget).data("shareText"));
+    shareTwitter($(event.currentTarget).data("shareText"), document.URL.split("#")[0] + "#" + $(event.currentTarget).closest('.item').attr("id"));
   });
 
   // the unbearable weight of ANALYTICS OR IT DIDN'T HAPPEN!!!
