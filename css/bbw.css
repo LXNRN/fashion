@@ -297,3 +297,9 @@ h1 a {
     display: none;
   }
 }
+
+@media (max-width: 600px) {
+  #header-social {
+    display: none;
+  }
+}
