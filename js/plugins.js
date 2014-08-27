@@ -106,9 +106,9 @@ function analytics(meta) {
 
   var urlHash = window.location.hash
 
-  // var comscore = Comscore(comscoreConfig)
-  // comscore.track(urlHash)
-  // comscore.trackPageview()
+  var comscore = Comscore(comscoreConfig)
+  comscore.track(urlHash)
+  comscore.trackPageview()
 
   var _sf_async_config= {uid: 15087, domain: "www.businessweek.com"};
   _sf_async_config.useCanonical = true;
@@ -136,7 +136,7 @@ function analytics(meta) {
 // SHARING //
 /////////////
 
-function shareTwitter(shareText) {
+function shareFacebook(shareText) {
   event.preventDefault()
   var textString = shareText
   var text = encodeURIComponent(textString)
@@ -144,7 +144,7 @@ function shareTwitter(shareText) {
       height = 400,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = $(this).attr('href') + text + "&url=" + document.URL,
+      url    = "http://www.facebook.com/sharer/sharer.php?u=" + text + "&url=" + document.URL,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -156,30 +156,7 @@ function shareTwitter(shareText) {
   return false;
 }
 
-function shareLinkedIn(shareText) {
-  event.preventDefault()
-  var textString = shareText
-  var text = encodeURIComponent(textString)
-  var width  = 550,
-      height = 420,
-      left   = ($(window).width()  - width)  / 2,
-      top    = ($(window).height() - height) / 2,
-      articleUrl = encodeURIComponent("http://businessweek.com"),
-      url    = $(this).attr('href') + text + "&url=" + articleUrl
-      opts   = 'status=1' +
-               ',width='  + width  +
-               ',height=' + height +
-               ',top='    + top    +
-               ',left='   + left;
-
-               console.log(url)
-
-  window.open(url, 'linkedin', opts);
-
-  return false;
-}
-
-function shareFacebook(shareText) {
+function shareTwitter(shareText) {
   event.preventDefault()
   var textString = shareText
   var text = encodeURIComponent(textString)
@@ -188,14 +165,33 @@ function shareFacebook(shareText) {
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
       articleUrl = encodeURIComponent(document.URL),
-      url    = $(this).attr('href') + articleUrl
+      url    = "http://twitter.com/share?text=" + text + "&url=" + articleUrl
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
                ',top='    + top    +
                ',left='   + left;
 
-      console.log(url)
+  window.open(url, 'linkedin', opts);
+
+  return false;
+}
+
+function shareLinkedin(shareText) {
+  event.preventDefault()
+  var textString = shareText
+  var text = encodeURIComponent(textString)
+  var width  = 550,
+      height = 420,
+      left   = ($(window).width()  - width)  / 2,
+      top    = ($(window).height() - height) / 2,
+      articleUrl = encodeURIComponent(document.URL),
+      url    = "http://www.linkedin.com/shareArticle?summary=" + articleUrl
+      opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left;
 
   window.open(url, 'facebook', opts);
 
