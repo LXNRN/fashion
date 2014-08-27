@@ -186,18 +186,18 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
     if(tally['Yes'] > 50) {
       if(answerValue) {
         // majority would wear, including user
-        shareText = "Majority rules: I would totally wear this.";
+        shareText = "I would wear this to work. Would you?";
       } else {
         // majority would wear, but user wouldn't
-        shareText = "Can you believe most people would wear this? I wouldn't!";
+        shareText = "I can't believe people would go to work like this. I would never!";
       }
     } else {
       if(answerValue) {
         // majority wouldn't wear, but user would
-        shareText = "I don't get why people wouldn't wear this. I totally would.";
+        shareText = "I can't believe people wouldn't wear this. I would!";
       } else {
         // majority wouldn't wear, including user
-        shareText = "Obviously nobody wants to wear this.";
+        shareText = "Yeah, no one should wear this to work.";
       }
     }
 
