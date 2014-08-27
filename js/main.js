@@ -69,6 +69,10 @@ $( document ).ready(function() {
   $('.popup-linkedin').click(function() { shareLinkedIn(meta.shareText) } );
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
 
+  $('.tweet').click(function(event) {
+    shareTwitter($(event.currentTarget).data("shareText"));
+  });
+
   // the unbearable weight of ANALYTICS OR IT DIDN'T HAPPEN!!!
   analytics(meta);
 
@@ -76,9 +80,10 @@ $( document ).ready(function() {
 
 $(document).on("click", ".poll.unresolved .answer", function(event) {
 
-  console.log(event);
   var poll = $(event.target).closest('.poll');
   var answer = $(event.target).closest('.answer');
+  var answerValue = answer.hasClass('yes');
+  var yes = Math.floor(Math.random()*100);
 
   poll.removeClass("unresolved");
   poll.addClass("resolved");
@@ -86,15 +91,31 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
   poll.find(".answer").addClass("final");
   answer.addClass("selected");
 
-  var yes = Math.floor(Math.random()*100);
-
   poll.find(".yes").css("width", yes+"%");
   poll.find(".yes .percentage").text(yes+"%");
 
   poll.find(".no").css("width", (100-yes)+"%");
   poll.find(".no .percentage").text((100-yes)+"%");
 
-  answer.find(".tweet").show();
+  if(yes > 50) {
+    if(answerValue) {
+      // majority would wear, including user
+      shareText = "Majority rules: I would totally wear this.";
+    } else {
+      // majority would wear, but user wouldn't
+      shareText = "Can you believe most people would wear this? I wouldn't!";
+    }
+  } else {
+    if(answerValue) {
+      // majority wouldn't wear, but user would
+      shareText = "I don't get why people wouldn't wear this. I totally would.";
+    } else {
+      // majority wouldn't wear, including user
+      shareText = "Obviously nobody wants to wear this.";
+    }
+  }
+
+  answer.find(".tweet").show().data("shareText", shareText);
 
 })
 
