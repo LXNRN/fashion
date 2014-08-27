@@ -66,7 +66,14 @@
         <div class="poll unresolved">
           <div class="question">Could you wear this?</div>
           <div class="answers">
-            <div class="answer yes"><div>Yes&nbsp;<span class="percentage"></span></div></div><div class="answer no"><div>No&nbsp;<span class="percentage"></span></div></div>
+            <!-- Note that whitespace between yes and no will break layout due to inline-block -->
+            <div class="answer yes"><div>
+              Yes&nbsp;<span class="percentage"></span>
+              <div class="tweet"><a href="http://twitter.com"><i class="fa fa-twitter"></i></a></div>
+            </div></div><div class="answer no"><div>
+              No&nbsp;<span class="percentage"></span>
+              <div class="tweet"><a href="http://twitter.com"><i class="fa fa-twitter"></i></a></div>
+            </div></div>
           </div>
         </div>
       <% } %>

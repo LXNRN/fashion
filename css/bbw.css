@@ -227,6 +227,7 @@ h1 a {
 
 .answer {
   display: inline-block;
+  position: relative;
   width: 50%;
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
@@ -257,4 +258,22 @@ h1 a {
 
 .no {
   padding-left: 2px;
+}
+
+.tweet{
+  position: absolute;
+  left: 50%;
+  bottom: 110%;
+  transform: translate(-50%,0);
+  display: none;
+}
+.tweet a {
+  color: inherit;
+}
+.tweet:hover {
+  background: black;
+  color: white;
+}
+.tweet:hover a {
+  color: white;
 }
