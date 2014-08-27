@@ -68,3 +68,8 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
   poll.find(".no .percentage").text((100-yes)+"%");
 
 })
+
+$(window).scroll(function(event) {
+  var y = $(window).scrollTop();
+  $("body").css("background-position", "0% " + (y/100)+"%");
+})
