@@ -102,30 +102,7 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
       {id: 1, text: "No", vote: !answerValue.toString()}
     ]
   }
-  $.post("http://businessweek.com", postData, function(returnData) {
-    // success
-  }).fail(function() {
-
-    //only because dylan's server isn't live yet...
-    var returnData = {
-      "_id": "53fca5bcb0a0ae9430307657",
-      "text": "Could you wear this?",
-      "id": 1,
-      "app": "fashion2014",
-      "__v": 2,
-      "answers": [
-        {
-          "id": 0,
-          "text": "Yes",
-          "votes": Math.floor(Math.random()*50)
-        },
-        {
-          "id": 1,
-          "text": "No",
-          "votes": Math.floor(Math.random()*50)
-        }
-      ]
-    }
+  $.post("http://bw-poll-server.herokuapp.com", postData, function(returnData) {
 
     answer.find('.progress').hide();
 
