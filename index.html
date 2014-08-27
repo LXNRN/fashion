@@ -14,6 +14,7 @@
   <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/h5bp.css">
   <link rel="stylesheet" href="css/bbw.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -56,7 +57,7 @@
   </div>
 
   <script type="text/html" id="template-item">
-  <div id="<%= index %>" class="item <%= item.type %>">
+  <div id="<%= item.id %>" class="item <%= item.type %>">
     <img src="<%= item.img %>">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
@@ -69,7 +70,10 @@
           </div>
         </div>
       <% } %>
-      <div class="credit"><%= item.credit %></div>
+      <div class="credit">
+        <%= item.credit %>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+      </div>
     </div>
   </div>
   </script>
@@ -78,7 +82,10 @@
   <div id="<%= index %>" class="item <%= item.type %>">
     <div class="quote-content">“<%= item.dek %>”</div>
     <div class="quote-attribution"><%= item.hed %></div>
-    <div class="quote-credit"><%= item.credit %></div>
+    <div class="quote-credit">
+      <%= item.credit %>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+    </div>
   </div>
   </script>
 

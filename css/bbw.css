@@ -162,6 +162,13 @@ h1 a {
   line-height: 10pt;
 }
 
+.permalink {
+  color: #ccc;
+}
+.permalink:hover {
+  color: #000;
+}
+
 /* QUOTES */
 
 .item.quote {
