@@ -62,14 +62,73 @@
   font-stretch: normal;
 }
 
-/* */
+/* HEADER */
 
 body {
-background-image: url(../img/bg.png);
+  background-image: url(../img/bg.png);
+  background-size: 409px 409px;
+}
+
+header {
+  background: white;
+  border-bottom: 2px solid black;
+  padding: 10px;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0;
+  font-family: 'BWHaasHead';
+  font-size: 2em;
+  line-height: 0.8em;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+#header-social {
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+
+#header-social .social{
+  display: inline-block;
+  vertical-align: top;
+  height: 50px;
+}
+
+#header-social a {
+  display: inline-block;
+}
+
+/* ADS */
+
+.ad-wrapper {
+  height: 90px;
+  background: white;
+  border-bottom: 2px solid black;
+  padding: 10px;
+
+  background-image: url(../img/ad.png);
+  background-size: 50px 50px;
+}
+
+.ad-div {
+  width: 728px;
+  margin: 0 auto;
+}
+
+/* STUFF */
+
+#container {
+  padding: 10px 0 0 10px;
 }
 
 .item {
-  margin: 10px;
+  margin: 0 10px 10px 0;
   float: left;
   position: relative;
   background: white;
@@ -79,6 +138,10 @@ background-image: url(../img/bg.png);
   font-family: times;
   font-size: 10pt;
   background: white;
+}
+
+.item img {
+  max-width: 100%;
 }
 
 .caption {
@@ -104,6 +167,13 @@ background-image: url(../img/bg.png);
   border-top: 2px solid #000;
   font-size: 8pt;
   line-height: 10pt;
+}
+
+.permalink {
+  color: #ccc;
+}
+.permalink:hover {
+  color: #000;
 }
 
 /* QUOTES */
@@ -154,7 +224,7 @@ background-image: url(../img/bg.png);
 }
 
 .question {
-  padding: 10px 10px 0 10px;
+  padding: 10px;
   font-weight: bold;
 }
 
@@ -162,11 +232,9 @@ background-image: url(../img/bg.png);
   cursor: pointer;
 }
 
-.poll.resolved .answer div {
-}
-
 .answer {
   display: inline-block;
+  position: relative;
   width: 50%;
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
@@ -178,37 +246,54 @@ background-image: url(../img/bg.png);
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.poll.unresolved .answer:hover div {
+.poll.unresolved .answer:hover div, .poll.resolved .answer.selected div {
   color: white;
   background: black;
 }
 
-.poll.unresolved .answer {
+.answer .percentage {
+  font-weight: normal;
+}
+
+.answer div {
   padding: 5px;
 }
 
-.poll.resolved .answer {
-  padding: 2px;
+.yes {
+  padding-right: 2px;
 }
 
-.poll.unresolved .answer div {
-  padding: 5px;
+.no {
+  padding-left: 2px;
 }
 
-.poll.resolved .answer div {
-  padding: 8px;
+.progress {
+  display: none;
 }
 
-/*.yes div {
-  background: lightgreen;
+.tweet{
+  position: absolute;
+  left: 50%;
+  bottom: 110%;
+  transform: translate(-50%,0);
+  display: none;
 }
-.yes:hover div, .yes.final div {
-  background: #0f0;
+.tweet a {
+  color: inherit;
+}
+.tweet:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+.tweet:hover a {
+  color: white;
 }
 
-.no div {
-  background: #f99;
+/* RESPONSIVENESS */
+
+@media (max-width: 894px) {
+  .ad-wrapper {
+    display: none;
+  }
 }
-.no:hover div, .no.final div {
-  background: red;
-}*/

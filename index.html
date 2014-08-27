@@ -14,30 +14,75 @@
   <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/h5bp.css">
   <link rel="stylesheet" href="css/bbw.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48575462-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+
 </head>
 
 <body>
 
-  <div id="container"></div>
+  <header>
+    <h1><a href="http://businessweek.com/">Bloomberg&#8203;Businessweek</a></h1>
+    <div id="header-social">
+      <img class="popup-facebook social" href="#" src="img/facebook.png" alt="Share with friends on Facebook!" title="Share with friends on Facebook!">
+      <img class="popup-twitter social" href="#" src="img/twitter.png" alt="Share with followers on Twitter!" title="Share with followers on Twitter!">
+      <img class="popup-linkedin social" href="#" src="img/linkedin.png" alt="Share with potential employers on LinkedIn!" title="Share with potential employers on LinkedIn!">
+    </div>
+  </header>
+
+  <div class="ad-wrapper">
+    <div class='ad-div banner_ad non_blank_ad' id='leader_board'>
+      <div class='gpt_ads_slot' id='top'>
+        <div class='gpt_ad_container' data-gpt-size='[[728, 90], [970, 66], [1, 1]]' data-original-position='leader_board' data-position='top' data-pt='t11' data-size='728x90,970x66,1x1' data-tile='1' data-tz='top'>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="container">
+  <div class="item" style="background: none; border: 0"><img src="img/title.png" width="307" height="420"></div>
+  </div>
 
   <script type="text/html" id="template-item">
-  <div id="<%= index %>" class="item <%= item.type %>">
+  <div id="<%= item.id %>" class="item <%= item.type %>">
     <img src="<%= item.img %>">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
       <div class="dek"><%= item.dek %></div>
       <% if(item.type == 'could-you-wear-this') { %>
-        <div class="poll unresolved">
+        <div class="poll unresolved" data-poll-id="<%= item.id %>">
           <div class="question">Could you wear this?</div>
           <div class="answers">
-            <div class="answer yes"><div>Yes</div></div><div class="answer no"><div>No</div></div>
+            <!-- Note that whitespace between yes and no will break layout due to inline-block -->
+            <div class="answer yes" data-answer-id="0"><div>
+              Yes&nbsp;<span class="percentage"></span>
+              <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
+              <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
+            </div></div><div class="answer no" data-answer-id="1"><div>
+              No&nbsp;<span class="percentage"></span>
+              <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
+              <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
+            </div></div>
           </div>
         </div>
       <% } %>
-      <div class="credit"><%= item.credit %></div>
+      <div class="credit">
+        <%= item.credit %>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+      </div>
     </div>
   </div>
   </script>
@@ -46,7 +91,10 @@
   <div id="<%= index %>" class="item <%= item.type %>">
     <div class="quote-content">“<%= item.dek %>”</div>
     <div class="quote-attribution"><%= item.hed %></div>
-    <div class="quote-credit"><%= item.credit %></div>
+    <div class="quote-credit">
+      <%= item.credit %>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+    </div>
   </div>
   </script>
 
@@ -55,6 +103,8 @@
   <script src="js/vendor/masonry.pkgd.min.js"></script>
   <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/vendor/krux.js"></script>
+  <script src="js/comscore.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
