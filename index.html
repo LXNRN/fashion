@@ -63,15 +63,17 @@
       <div class="hed"><%= item.hed %></div>
       <div class="dek"><%= item.dek %></div>
       <% if(item.type == 'could-you-wear-this') { %>
-        <div class="poll unresolved">
+        <div class="poll unresolved" data-poll-id="<%= item.id %>">
           <div class="question">Could you wear this?</div>
           <div class="answers">
             <!-- Note that whitespace between yes and no will break layout due to inline-block -->
-            <div class="answer yes"><div>
+            <div class="answer yes" data-answer-id="0"><div>
               Yes&nbsp;<span class="percentage"></span>
+              <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
               <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
-            </div></div><div class="answer no"><div>
+            </div></div><div class="answer no" data-answer-id="1"><div>
               No&nbsp;<span class="percentage"></span>
+              <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
               <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
             </div></div>
           </div>
