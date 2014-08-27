@@ -288,3 +288,11 @@ h1 a {
 .tweet:hover a {
   color: white;
 }
+
+/* RESPONSIVENESS */
+
+@media (max-width: 894px) {
+  .ad-wrapper {
+    display: none;
+  }
+}
