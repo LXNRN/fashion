@@ -10,7 +10,10 @@ var meta = {
 
 var data = [];
 
-var masonry;
+var masonry,
+    templateItem,
+    templateQuote,
+    $container;
 
 // random number generators for fixtures
 var width = d3.random.normal(350, 100);
@@ -42,34 +45,27 @@ for(var i=1; i<=50; i++) {
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
-  var container = $("#container");
-
-  // fill in templates
-  var templateItem = $("#template-item").html();
-  var templateQuote = $("#template-quote").html();
-  var templatePoll = $("#template-poll").html();
-  data.forEach(function(item, index) {
-    if(item.type == "quote") {
-      container.append(_.template(templateQuote, {"item": item, "index": index}))
-    } else {
-      container.append(_.template(templateItem, {"item": item, "index": index}))
-    }
-  })
+  // Read in templates
+  templateItem = $("#template-item").html();
+  templateQuote = $("#template-quote").html();
 
   // MASONRY (once images load)
-  imagesLoaded(container[0], function() {
-    masonry = new Masonry( container[0], {
-      columnWidth: 1,
-      itemSelector: ".item"
-    });
+  $container = $('#container').masonry({
+    itemSelector: '.item',
+    columnWidth: 1
   });
+
+  // Load the initial 10 (kinda duplicate code...)
+  var $items = getItems($("#container").children().length-1, 10);
+  $container.masonryImagesReveal($items);
 
   // SOCIAL RULES EVERYTHING AROUND ME, SCREAM
   $('.popup-twitter').click(function() {shareTwitter(meta.shareText) } );
   $('.popup-linkedin').click(function() { shareLinkedIn(meta.shareText) } );
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
 
-  $('.tweet').click(function(event) {
+  // Post-poll tweet (delegated event)
+  $(document).on("click", ".poll .answer .tweet", function(event) {
     shareTwitter($(event.currentTarget).data("shareText"), document.URL.split("#")[0] + "#" + $(event.currentTarget).closest('.item').attr("id"));
   });
 
@@ -78,6 +74,7 @@ $( document ).ready(function() {
 
 });
 
+// delegated event, so it stays "live" (won't fire after poll is resolved)
 $(document).on("click", ".poll.unresolved .answer", function(event) {
 
   var poll = $(event.target).closest('.poll');
@@ -165,6 +162,48 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
 })
 
 $(window).scroll(function(event) {
+
+  // terrible janky width-dependent (?!) parallax background scroll
   var y = $(window).scrollTop();
   $("body").css("background-position", "0% " + (y/100)+"%");
+
+  // when you hit the bottom, load more
+  if($(window).scrollTop() + $(window).height() == $(document).height()) {
+    var $items = getItems($("#container").children().length-1, 10);
+    $container.masonryImagesReveal($items);
+  }
 })
+
+function getItems(offset, limit) {
+  var itemsHTML = '';
+  var items = data.slice(offset, offset+limit);
+  items.forEach(function(item) {
+    if(item.type == "quote") {
+      itemsHTML += _.template(templateQuote, {"item": item});
+    } else {
+      itemsHTML += _.template(templateItem, {"item": item});
+    }
+  })
+  return $(itemsHTML);
+}
+
+// from http://codepen.io/desandro/pen/kwsJb
+$.fn.masonryImagesReveal = function( $items ) {
+  var msnry = this.data('masonry');
+  var itemSelector = msnry.options.itemSelector;
+  // hide by default
+  $items.hide();
+  // append to container
+  this.append( $items );
+  $items.imagesLoaded().progress( function( imgLoad, image ) {
+    // get item
+    // image is imagesLoaded class, not <img>, <img> is image.img
+    var $item = $( image.img ).parents( itemSelector );
+    // un-hide item
+    $item.show();
+    // masonry does its thing
+    msnry.appended( $item );
+  });
+
+  return this;
+};
