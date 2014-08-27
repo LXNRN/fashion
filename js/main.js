@@ -32,14 +32,16 @@ function Item(id) {
 	this.hed = lorem.substr(0,c/4);
 	this.dek = lorem.substr(0,c);
 	this.credit = lorem.substr(0,c/2);
-  this.img = "img/" + ('0' + id).slice(-2) + "_large.png"
-  // this.img = "http://placekitten.com/"+w+"/"+h;
-  this.img
+  this.imgSmall = "img/" + ('0' + id).slice(-2) + "_small.png";
+  this.imgLarge = "img/" + ('0' + id).slice(-2) + "_large.png";
+  getImageSize(this.imgSmall, this, function(item, size) {
+    item.imgSize = size;
+  });
 }
 
 // fill in fixtures
 for(var i=1; i<=50; i++) {
-  data.push(new Item(data.length));
+  data.push(new Item(i));
 }
 
 ///////////////////////////////////////////////////
@@ -209,3 +211,15 @@ $.fn.masonryImagesReveal = function( $items ) {
 
   return this;
 };
+
+// thanks to http://stackoverflow.com/a/1093364/120290
+function getImageSize(src, item, callback) {
+  // create an offscreen image that isn't scaled but contains the same image.
+  var img = new Image();
+  img.src = src;
+
+  // check if the image has finished loading
+  img.onload = function() {
+    callback(item, {width: img.width, height: img.height});
+  };
+}
