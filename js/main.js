@@ -1,4 +1,5 @@
 var data = [];
+var masonry;
 
 var width = d3.random.normal(350, 100);
 var height = d3.random.normal(350, 100);
@@ -37,7 +38,6 @@ $( document ).ready(function() {
     }
   })
 
-  var masonry;
   imagesLoaded(container[0], function() {
     masonry = new Masonry( container[0], {
       columnWidth: 1,
