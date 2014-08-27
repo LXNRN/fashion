@@ -58,11 +58,11 @@
 
   <script type="text/html" id="template-item">
   <div id="<%= item.id %>" class="item <%= item.type %>">
-    <img src="<%= item.imgSmall %>">
+    <img src="img/<%= item.imgSmall %>">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
       <div class="dek"><%= item.dek %></div>
-      <% if(item.type == 'could-you-wear-this') { %>
+      <% if(item.type == 'experiment') { %>
         <div class="poll unresolved" data-poll-id="<%= item.id %>">
           <div class="question">Could you wear this?</div>
           <div class="answers">
