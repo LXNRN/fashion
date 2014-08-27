@@ -137,6 +137,10 @@ h1 a {
   background: white;
 }
 
+.item img {
+  max-width: 100%;
+}
+
 .caption {
   display:table-caption;
   caption-side:bottom;
