@@ -135,6 +135,7 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
       percentage = Math.round((answer.votes/voteSum)*100);
       answerEl = poll.find('[data-answer-id="'+answer.id+'"]');
       answerEl.css("width", percentage+"%");
+      if(percentage==0) { answerEl.hide(); }
       answerEl.find(".percentage").text(percentage+"%");
       tally[answer.text] = percentage;
     })
