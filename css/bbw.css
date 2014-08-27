@@ -284,6 +284,7 @@ h1 a {
 .tweet:hover {
   background: black;
   color: white;
+  cursor: pointer;
 }
 .tweet:hover a {
   color: white;
