@@ -8,7 +8,8 @@ var meta = {
   shareText: "Omg I love clothes"
 };
 
-var data = [{"spread":1,"id":0,"type":"intro","hed":"","dek":"It's time to start dressing up again. Over the past 10 years, workwear has gotten increasingly casual, to the point where everyone from the intern to the boss is wearing sneakers and jeans. Perhaps you haven't heard that informal office environments are linked with lower productivity. If that's not enough to get you into a suit or dress, the fantastic array of more formal clothing landing in stores this fall should be. We've compiled 50 tips and trends to help you get back to looking like you're ready to do business or, at the very least, stop treating every day like casual Friday. As some good book said: Dress for the job you wish you had.","credit":"Jenni Kayne narrow stripe pullover, $595. Frame Le Classic blouse, $188. Helmut Lang veneered angora skirt, $495. Topshop guapa suede Mary Janes, $100. Hermès watch, $8,700","photocredit":"Photograph by B. Blanchet for Bloomberg Businessweek; Hair and makeup: Kyle Malone/Exclusive Artists. Illustrations by Cari Vander Yacht","imgSmall":"0_small.png","imgLarge":"0_large.png"},
+var data = [
+// {"spread":1,"id":0,"type":"intro","hed":"","dek":"It's time to start dressing up again. Over the past 10 years, workwear has gotten increasingly casual, to the point where everyone from the intern to the boss is wearing sneakers and jeans. Perhaps you haven't heard that informal office environments are linked with lower productivity. If that's not enough to get you into a suit or dress, the fantastic array of more formal clothing landing in stores this fall should be. We've compiled 50 tips and trends to help you get back to looking like you're ready to do business or, at the very least, stop treating every day like casual Friday. As some good book said: Dress for the job you wish you had.","credit":"Jenni Kayne narrow stripe pullover, $595. Frame Le Classic blouse, $188. Helmut Lang veneered angora skirt, $495. Topshop guapa suede Mary Janes, $100. Hermès watch, $8,700","photocredit":"Photograph by B. Blanchet for Bloomberg Businessweek; Hair and makeup: Kyle Malone/Exclusive Artists. Illustrations by Cari Vander Yacht","imgSmall":"0_small.png","imgLarge":"0_large.png"},
 {"spread":1,"id":1,"type":"general","hed":"Long Camel Coats","dek":"The official jacket of the Ivy League gets a much-needed makeover with a longer length and more casual fit for both men and women. The coat should fit in the shoulder and sleeves and billow out from the body a bit. Shorter women, stick with knee-length.","credit":"Him: Calvin Klein lofty cashmere overcoat, $4,995. Steven Alan Oliver suit jacket, $495, and pants, $295. Thomas Pink button-cuff shirt, $185. Saint Laurent Classic 1 sunglasses, $310. Ralph Lauren burnished-calf loafers, $475. Her: Tibi cashmere maxi coat, $845. Derek Lam bonded-crepe turtleneck, $890. Michael Kors houndstooth circle skirt, $110. Karen Walker northern lights sunglasses, $250. Chrissie Morris pointed-toe pumps, $830","photocredit":"Photograph by Geordie Wood for Bloomberg Businessweek; hair and makeup: Kyle Malone/Exclusive Artists","imgSmall":"1_small.png","imgLarge":"1_large.png"},
 {"spread":1,"id":2,"type":"general","hed":"Leather Separates","dek":"A motorcycle jacket is a bit too rock 'n' roll for the office, but skirts and tops are fair game. Wear with other dark pieces to add texture—and prove to colleagues you've still got a little edge.","credit":"Alexander Wang sleeveless shirt, price upon request. Cushnie et Ochs leather mini trumpet skirt, $1,495","photocredit":"Photograph by Jody Rogac for Bloomberg Businessweek; soft-goods stylist: Elizabeth Osborn","imgSmall":"2_small.png","imgLarge":"2_large.png"},
 {"spread":1,"id":3,"type":"experiment","hed":"A Non-Nerdy Sweater Vest","dek":"They're practical and preppy and seem like the perfect thing to wear in early fall's in-between weather. This comfy mohair Saint Laurent vest ($725 at mrporter.com), with its argyle pattern and slimmer silhouette, looked great on the rack. I imagined it would become my new go-to garment—a contemporary version of an old-school item that looks just as cool now as it did in the Fifties. But, actually, I looked sort of lame. When I put the V-neck on over a dress shirt, the V was a little too low, and the whole thing read too math-teachery. I'm not giving up just yet: Next week, I'm trying it with a navy blazer. Maybe then.","credit":"","photocredit":"Photograph by B. Blanchet for Bloomberg Businessweek; hair and makeup: Kyle Malone/Exclusive Artists","imgSmall":"3_small.png","imgLarge":"3_large.png"},
@@ -146,7 +147,27 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
   //   console.log(response);
   // })
 
-  $.post("http://bw-poll-server.herokuapp.com/api/vote", postData, function(returnData) {
+  $.post("http://bw-poll-server.herokuapp.com/api/vote", postData, function(returnData) { }).fail(function() {
+
+    var returnData = {
+      "_id": "53fca5bcb0a0ae9430307657",
+      "text": "Could you wear this?",
+      "id": 1,
+      "app": "fashion2014",
+      "__v": 2,
+      "answers": [
+        {
+          "id": 0,
+          "text": "Yes",
+          "votes": Math.floor(Math.random()*50)
+        },
+        {
+          "id": 1,
+          "text": "No",
+          "votes": Math.floor(Math.random()*50)
+        }
+      ]
+    }
 
     answer.find('.progress').hide();
 
