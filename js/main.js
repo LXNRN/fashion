@@ -22,7 +22,7 @@ var characters = d3.random.normal(160, 60);
 var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed velit eget eros ullamcorper lobortis id ac dui. Vivamus commodo pulvinar leo, ac consectetur arcu mattis vel. Donec dapibus, orci eget ullamcorper egestas, felis ex elementum est, ut fermentum leo tortor nec felis. Nulla euismod commodo dui, sed pretium tortor luctus nec. Integer rhoncus metus enim, et vehicula nulla ullamcorper eu.";
 
 // random item fixture constructor
-function item(id) {
+function Item(id) {
   var w = Math.round(width());
   var h = Math.round(height());
   var c = Math.round(characters());
@@ -32,12 +32,14 @@ function item(id) {
 	this.hed = lorem.substr(0,c/4);
 	this.dek = lorem.substr(0,c);
 	this.credit = lorem.substr(0,c/2);
-  this.img = "http://placekitten.com/"+w+"/"+h;
+  this.img = "img/" + ('0' + id).slice(-2) + "_large.png"
+  // this.img = "http://placekitten.com/"+w+"/"+h;
+  this.img
 }
 
 // fill in fixtures
 for(var i=1; i<=50; i++) {
-  data.push(new item(data.length));
+  data.push(new Item(data.length));
 }
 
 ///////////////////////////////////////////////////
