@@ -174,20 +174,24 @@ $.fn.masonryImagesReveal = function( $items ) {
 
   // debugger
 
-  $items.hide();
+  // $items.hide();
 
   // append to container
   this.append( $items );
 
-  $items.imagesLoaded().progress( function( imgLoad, image ) {
-    // get item
-    // image is imagesLoaded class, not <img>, <img> is image.img
-    var $item = $( image.img ).parents( itemSelector );
-    // un-hide item
-    $item.show();
-    // masonry does its thing
-    msnry.appended( $item );
-  });
+  // $items.imagesLoaded().progress( function( imgLoad, image ) {
+  //   // get item
+  //   // image is imagesLoaded class, not <img>, <img> is image.img
+  //   var $item = $( image.img ).parents( itemSelector );
+  //   // un-hide item
+  //   $item.show();
+  //   // masonry does its thing
+  //   msnry.appended( $item );
+  // });
+
+  $items.imagesLoaded().done(function(instance) {
+    $container.data('masonry').layout();
+  })
 
   return this;
 };
