@@ -44,7 +44,7 @@ var data = [{"spread":1,"id":0,"type":"intro","hed":"","dek":"It's time to start
 {"spread":5,"id":38,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"38_small.png","imgLarge":"38_large.png","imgSize":null},
 {"spread":5,"id":39,"type":"quote","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"39_small.png","imgLarge":"39_large.png","imgSize":null},
 {"spread":5,"id":40,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"40_small.png","imgLarge":"40_large.png","imgSize":null},
-{"spread":6,"id":41,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"41_small.png","imgLarge":"41_large.png","imgSize":null},
+{"spread":6,"id":41,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"gif","imgSmall":"41_small.gif","imgLarge":"41_large.gif","imgSize":null},
 {"spread":6,"id":42,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"42_small.png","imgLarge":"42_large.png","imgSize":null},
 {"spread":6,"id":43,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"43_small.png","imgLarge":"43_large.png","imgSize":null},
 {"spread":6,"id":44,"type":"","hed":"","dek":"","credit":"","photocredit":"","imgType":"png","imgSmall":"44_small.png","imgLarge":"44_large.png","imgSize":null},
