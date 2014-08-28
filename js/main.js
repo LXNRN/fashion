@@ -29,6 +29,7 @@ var progLoadBuffer = 200,
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
+
   sizeHeader();
 
   // Read in templates
@@ -58,6 +59,8 @@ $( document ).ready(function() {
 
   // the unbearable weight of ANALYTICS OR IT DIDN'T HAPPEN!!!
   analytics(meta);
+
+  $('body').stellar()
 
 });
 
@@ -236,12 +239,16 @@ function getImageSize(src, item, callback) {
 
 // Social for individual items
 function setShareHandlers() {
-  // $('.fa-facebook').click(function(event) {
-  //   var url = document.URL + $(event.target).parent().attr('href');
-  //   var shareText = $(event.target).closest('.caption').find('.hed').text();
-  //   shareFacebook(shareText, url)
-  //   return false
-  // })
+  $('.fa-twitter').click(function(event) {
+    var quote = $(event.target).parents('.quote')
+    var content = quote.find('.quote-content').text()
+    var attribution = quote.find('.quote-attribution').text()
+    var credit = quote.find('.quote-credit').text().trim()
+    var shareText = content + ' -' + attribution + ' ' + credit
+    var url = document.URL
+    shareTwitter(shareText, url)
+    return false
+  })
 
   $('.fa-pinterest').click(function(event) {
     var target = $(event.target)
