@@ -47,6 +47,7 @@ $( document ).ready(function() {
   $('.popup-twitter').click(function() {shareTwitter(meta.shareText) } );
   $('.popup-linkedin').click(function() { shareLinkedIn(meta.shareText) } );
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
+  $('.popup-pinterest').click(function() {sharePinterest(meta.shareText) } );
 
   // Post-poll tweet (delegated event)
   $(document).on("click", ".poll .answer .tweet", function(event) {
