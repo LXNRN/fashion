@@ -97,7 +97,13 @@ h1 a {
 #header-social .social{
   display: inline-block;
   vertical-align: top;
-  height: 50px;
+  height: 40px;
+  width: 40px;
+  transition: transform .2s;
+}
+
+#header-social .social:hover {
+  transform: rotate(10deg);
 }
 
 #header-social a {
@@ -121,11 +127,11 @@ h1 a {
 
 .ad-wrapper {
   height: 90px;
-  background: white;
-  border-bottom: 2px solid black;
+  /*background: white;*/
+  /*border-bottom: 2px solid black;*/
   padding: 10px;
 
-  background-image: url(../img/ad.png);
+  /*background-image: url(../img/ad.png);*/
   background-size: 50px 50px;
 }
 
@@ -302,22 +308,29 @@ h1 a {
 }
 
 .tweet{
+  background: none;
   position: absolute;
   left: 50%;
   bottom: 110%;
+  transition: transform .2s;
   transform: translate(-50%,0);
   display: none;
 }
 .tweet a {
+  background: none;
   color: inherit;
 }
 .tweet:hover {
-  background: black;
-  color: white;
+  background: none;
   cursor: pointer;
 }
 .tweet:hover a {
+  background: none;
   color: white;
+}
+
+.tweet:hover img {
+  transform: rotate(10deg);
 }
 
 /* RESPONSIVENESS */
