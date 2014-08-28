@@ -42,7 +42,7 @@ $( document ).ready(function() {
   });
 
   // Load the initial 10 (kinda duplicate code...)
-  var $items = getItems($("#container").children().length, progLoadLimit);
+  var $items = getItems($("#container").children().length-1, progLoadLimit);
   $container.masonryImagesReveal($items);
 
   // SOCIAL RULES EVERYTHING AROUND ME, SCREAM
@@ -133,7 +133,7 @@ $(window).scroll(function(event) {
 
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
-    var $items = getItems($("#container").children().length, progLoadLimit);
+    var $items = getItems($("#container").children().length-1, progLoadLimit);
     if($items.length != 0) {
       // progressively reveal next items
       $container.masonryImagesReveal($items);
@@ -174,24 +174,28 @@ $.fn.masonryImagesReveal = function( $items ) {
 
   // debugger
 
-  // $items.hide();
+  $items.hide();
 
   // append to container
   this.append( $items );
 
-  // $items.imagesLoaded().progress( function( imgLoad, image ) {
-  //   // get item
-  //   // image is imagesLoaded class, not <img>, <img> is image.img
-  //   var $item = $( image.img ).parents( itemSelector );
-  //   // un-hide item
-  //   $item.show();
-  //   // masonry does its thing
-  //   msnry.appended( $item );
-  // });
+  $items.imagesLoaded().progress( function( imgLoad, image ) {
+    // get item
+    // image is imagesLoaded class, not <img>, <img> is image.img
+    var $item = $( image.img ).parents( itemSelector );
+    // un-hide item
+    $item.show();
+    // masonry does its thing
+    msnry.appended( $item );
+  }).fail(function(instance) {
 
-  $items.imagesLoaded().done(function(instance) {
-    $container.data('masonry').layout();
-  })
+    msnry.appended( $('.quote:hidden').show() );
+
+  }).done(function(instance) {
+
+    msnry.appended( $('.quote:hidden').show() );
+
+  });
 
   return this;
 };
