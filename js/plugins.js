@@ -242,7 +242,7 @@ function sharePinterest(shareText, shareUrl, shareImg) {
 
 var ROOT_URL          = "http://www.businessweek.com/";
 var DOUBLECLICK_URL_PREFIX = "http://ad.doubleclick.net/N5262";
-var AD_SITE           = "mgh.bw.technology/global_tech_06052014";
+var AD_SITE           = "mgh.bw.lifestyle/fashion";
 var AD_LAYOUT_DESC    = "";
 var AD_SUB_SITE       = "";
 var AD_ZONE           = "";
@@ -274,9 +274,9 @@ if(window.innerWidth > 895) {
 
 if(window.innerWidth > 895) {
   googletag.cmd.push(function() {
-    googletag.defineSlot('/5262/mgh.bw.technology/global_tech_06052014', [[728, 90], [970, 66], [1, 1]], 'top').addService(googletag.pubads());
-    googletag.defineSlot('/5262/mgh.bw.technology/global_tech_06052014', [[300, 250], [300, 600], [1, 1]], 'right1').addService(googletag.pubads());
-    googletag.defineSlot('/5262/mgh.bw.technology/global_tech_06052014', [[300, 250], [1, 1]], 'right3').addService(googletag.pubads());
+    googletag.defineSlot('/5262/mgh.bw.lifestyle/fashion/', [[728, 90], [970, 66], [1, 1]], 'top').addService(googletag.pubads());
+    googletag.defineSlot('/5262/mgh.bw.lifestyle/fashion/', [[300, 250], [300, 600], [1, 1]], 'right1').addService(googletag.pubads());
+    googletag.defineSlot('/5262/mgh.bw.lifestyle/fashion/', [[300, 250], [1, 1]], 'right3').addService(googletag.pubads());
     //googletag.pubads().collapseEmptyDivs();
     googletag.pubads().enableAsyncRendering();
     googletag.pubads().enableSingleRequest();

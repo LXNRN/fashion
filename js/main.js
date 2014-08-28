@@ -224,12 +224,12 @@ function getImageSize(src, item, callback) {
 
 // Social for individual items
 function setShareHandlers() {
-  $('.fa-facebook').click(function(event) {
-    var url = document.URL + $(event.target).parent().attr('href');
-    var shareText = $(event.target).closest('.caption').find('.hed').text();
-    shareFacebook(shareText, url)
-    return false
-  })
+  // $('.fa-facebook').click(function(event) {
+  //   var url = document.URL + $(event.target).parent().attr('href');
+  //   var shareText = $(event.target).closest('.caption').find('.hed').text();
+  //   shareFacebook(shareText, url)
+  //   return false
+  // })
 
   $('.fa-pinterest').click(function(event) {
     var target = $(event.target)
