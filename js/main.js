@@ -1,3 +1,5 @@
+'use strict';
+
 var meta = {
   site: "businessweek", // e.g. "businessweek"
   author: "Kurt Soller", // e.g. "Claire Suddath"
@@ -48,6 +50,23 @@ $( document ).ready(function() {
   $('.popup-linkedin').click(function() { shareLinkedIn(meta.shareText) } );
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
   $('.popup-pinterest').click(function() {sharePinterest(meta.shareText) } );
+
+  // Social for individual items
+  $('.fa-facebook').click(function(event) {
+    var url = document.URL + $(event.target).parent().attr('href');
+    var shareText = $(event.target).closest('.caption').find('.hed').text();
+    shareFacebook(shareText, url)
+    return false
+  })
+
+  $('.fa-pinterest').click(function(event) {
+    var target = $(event.target)
+    var url = document.URL + target.parent().attr('href');
+    var shareText = target.closest('.caption').find('.hed').text();
+    var img = document.URL + target.closest('.item').find('img').attr('src')
+    sharePinterest(shareText, url, img)
+    return false
+  })
 
   // Post-poll tweet (delegated event)
   $(document).on("click", ".poll .answer .tweet", function(event) {
