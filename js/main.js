@@ -1,3 +1,5 @@
+'use strict';
+
 var meta = {
   site: "businessweek", // e.g. "businessweek"
   author: "Kurt Soller", // e.g. "Claire Suddath"
@@ -192,7 +194,7 @@ $.fn.masonryImagesReveal = function( $items ) {
   }).done(function(instance) {
 
     msnry.appended( $('.quote:hidden').show() );
-
+    setShareHandlers();
   });
 
   return this;
@@ -219,3 +221,23 @@ function getImageSize(src, item, callback) {
     callback(item, {width: img.width, height: img.height});
   };
 }
+
+// Social for individual items
+function setShareHandlers() {
+  $('.fa-facebook').click(function(event) {
+    var url = document.URL + $(event.target).parent().attr('href');
+    var shareText = $(event.target).closest('.caption').find('.hed').text();
+    shareFacebook(shareText, url)
+    return false
+  })
+
+  $('.fa-pinterest').click(function(event) {
+    var target = $(event.target)
+    var url = document.URL + target.parent().attr('href');
+    var shareText = target.closest('.caption').find('.hed').text();
+    var img = document.URL.split('#')[0] + target.closest('.item').find('img').attr('src')
+    sharePinterest(shareText, url, img)
+    return false
+  })    
+}
+

@@ -115,6 +115,8 @@ function analytics(meta) {
 
   _sf_async_config.sections = meta.section;
   _sf_async_config.authors = meta.author;
+  _sf_async_config.path = window.location.pathname; //Removes query parameters
+  _sf_async_config.title = meta.title;
 
 
   (function(){
@@ -136,18 +138,21 @@ function analytics(meta) {
 // SHARING //
 /////////////
 
+https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbuswk.co%2F1tefWiG&t=Hollywood%27s+Big-Money+YouTube+Hit+Factory
+
 function shareFacebook(shareText, shareURL) {
   if (arguments.length == 1) {
-    shareURL = document.URL;
+    var url = document.URL;
   }
   event.preventDefault()
+  var url = encodeURIComponent(shareURL)
   var textString = shareText
   var text = encodeURIComponent(textString)
   var width  = 575,
       height = 400,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = "http://www.facebook.com/sharer/sharer.php?u=" + text + "&url=" + shareURL,
+      url    = "http://www.facebook.com/sharer/sharer.php?u=" + url + "&t=" + text,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
