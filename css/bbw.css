@@ -199,31 +199,31 @@ footer {
 /* STUFF */
 
 #container {
-  padding: 10px 0 0 10px;
+  margin: 10px;
 }
 
 .item {
   margin: 0 10px 10px 0;
+  box-sizing: border-box;
+  max-width: 100%;
   float: left;
   position: relative;
   background: white;
   transition: -webkit-transform 0.2s;
-  display: table;
   border: 2px solid black;
   font-family: times;
   font-size: 10pt;
   background: white;
+  display: inline-block;
 }
 
 .item .item-img {
-  max-width: 100%;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 .caption {
-  display:table-caption;
-  caption-side:bottom;
   padding: 10px;
-  border: 2px solid black;
   border-top-width: 0;
   line-height: 12pt;
   background: white;
@@ -405,5 +405,15 @@ footer {
 @media (max-width: 600px) {
   #header-social {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #header-social {
+    display: none;
+  }
+
+  .headline {
+    overflow: hidden;
   }
 }
