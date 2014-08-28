@@ -58,8 +58,8 @@ var data = [
 ];
 
 data.forEach(function(value, index) {
-  getImageSize(value.imgSmall, this, function(item, size) {
-    data[index].size = size;
+  getImageSize("img/"+value.imgSmall, this, function(item, size) {
+    data[index].imgSize = size;
     // item.imgSize = size;
   });
 })
