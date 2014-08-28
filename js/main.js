@@ -42,7 +42,7 @@ $( document ).ready(function() {
   });
 
   // Load the initial 10 (kinda duplicate code...)
-  var $items = getItems($("#container").children().length-1, progLoadLimit);
+  var $items = getItems($("#container").children().length, progLoadLimit);
   $container.masonryImagesReveal($items);
 
   // SOCIAL RULES EVERYTHING AROUND ME, SCREAM
@@ -133,7 +133,7 @@ $(window).scroll(function(event) {
 
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
-    var $items = getItems($("#container").children().length-1, progLoadLimit);
+    var $items = getItems($("#container").children().length, progLoadLimit);
     if($items.length != 0) {
       // progressively reveal next items
       $container.masonryImagesReveal($items);
