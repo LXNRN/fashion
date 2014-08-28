@@ -168,33 +168,13 @@ function getItems(offset, limit) {
 
 // from http://codepen.io/desandro/pen/kwsJb
 $.fn.masonryImagesReveal = function( $items ) {
-  var msnry = this.data('masonry');
-  var itemSelector = msnry.options.itemSelector;
-  // hide by default
-
-  // debugger
-
-  $items.hide();
 
   // append to container
   this.append( $items );
 
-  $items.imagesLoaded().progress( function( imgLoad, image ) {
-    // get item
-    // image is imagesLoaded class, not <img>, <img> is image.img
-    var $item = $( image.img ).parents( itemSelector );
-    // un-hide item
-    $item.show();
-    // masonry does its thing
-    msnry.appended( $item );
-  }).fail(function(instance) {
-
-    msnry.appended( $('.quote:hidden').show() );
-
-  }).done(function(instance) {
-
-    msnry.appended( $('.quote:hidden').show() );
-
+  // when all images have loaded, lay out the new batch
+  $items.imagesLoaded().done(function(instance) {
+    $container.masonry( 'appended', $items );
   });
 
   return this;
