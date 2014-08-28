@@ -56,12 +56,17 @@
   <div class="item headline" style="background: none; border: 0"><img src="img/headline.png"></div>
   </div>
 
+  <div class="progressive-loading-indicator"><div><i class="fa fa-spinner fa-spin fa-3x"></i></div></div>
+
   <script type="text/html" id="template-item">
   <div id="<%= item.id %>" class="item <%= item.type %>">
     <img src="img/<%= item.imgSmall %>">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
-      <div class="dek"><%= item.dek %></div>
+      <div class="dek">
+        <%= item.dek %>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+      </div>
       <% if(item.type == 'experiment') { %>
         <div class="poll unresolved" data-poll-id="<%= item.id %>">
           <div class="question">Could you wear this?</div>
@@ -80,8 +85,8 @@
         </div>
       <% } %>
       <div class="credit">
-        <%= item.credit %>
-        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+        <%= item.credit %><%= item.credit && item.photocredit ? ". " : "" %>
+        <%= item.photocredit %>
       </div>
     </div>
   </div>
