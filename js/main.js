@@ -16,6 +16,11 @@ var masonry,
     templateQuote,
     $container;
 
+// misc. parameters
+var progLoadBuffer = 200,
+    progLoadLimit = 10,
+    parallaxRate = 100;
+
 ///////////////////////////////////////////////////
 
 $( document ).ready(function() {
@@ -34,7 +39,7 @@ $( document ).ready(function() {
   });
 
   // Load the initial 10 (kinda duplicate code...)
-  var $items = getItems($("#container").children().length-1, 10);
+  var $items = getItems($("#container").children().length-1, progLoadLimit);
   $container.masonryImagesReveal($items);
 
   // SOCIAL RULES EVERYTHING AROUND ME, SCREAM
@@ -120,11 +125,11 @@ $(window).scroll(function(event) {
 
   // terrible janky width-dependent (?!) parallax background scroll
   var y = $(window).scrollTop();
-  $("body").css("background-position", "0% " + (y/100)+"%");
+  $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
 
   // when you hit the bottom, load more
-  if($(window).scrollTop() + $(window).height() == $(document).height()) {
-    var $items = getItems($("#container").children().length-1, 10);
+  if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
+    var $items = getItems($("#container").children().length-1, progLoadLimit);
     if($items.length != 0) {
       // progressively reveal next items
       $container.masonryImagesReveal($items);
