@@ -123,6 +123,14 @@ h1 a {
   text-align: center;
 }
 
+footer {
+  border-top: 2px solid black;
+  font-family: times;
+  background: white;
+  padding: 20px 10px;
+  font-size: 10pt;
+}
+
 /* ADS */
 
 .ad-wrapper {
