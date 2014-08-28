@@ -141,7 +141,7 @@ $(window).scroll(function(event) {
 
   // terrible janky width-dependent (?!) parallax background scroll
   var y = $(window).scrollTop();
-  $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
+  // $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
 
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
