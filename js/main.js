@@ -187,14 +187,6 @@ $.fn.masonryImagesReveal = function( $items ) {
     $item.show();
     // masonry does its thing
     msnry.appended( $item );
-  }).fail(function(instance) {
-
-    msnry.appended( $('.quote:hidden').show() );
-
-  }).done(function(instance) {
-
-    msnry.appended( $('.quote:hidden').show() );
-
   });
 
   return this;
