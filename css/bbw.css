@@ -154,8 +154,8 @@ footer {
 .item.headline {
   background: none;
   border: 0;
-  width: 550px;
-  height: 600px;
+  width: 560px;
+  height: 560px;
 }
 
 .headline img {
@@ -164,8 +164,8 @@ footer {
 
 .headline .figurehead {
   position: absolute;
-  width: 200px;
-  top: -50px;
+  width: 35.71428571%; /* 200/560 */
+  top: 8.928571429%; /* -50/560 */
 }
 
 .headline .figurehead:hover {
@@ -174,9 +174,9 @@ footer {
 
 .headline .title {
   position: absolute;
-  width: 378px;
-  top: 50px;
-  left: 150px;
+  width: 67.5%; /* 378/560 */
+  top: 8.928571429%; /* 50/560 */
+  left: 26.78571429%; /* 150/560 */
   transform: rotate(14deg);
 }
 
@@ -186,9 +186,9 @@ footer {
 
 .headline .subtitle {
   position: absolute;
-  width: 412px;
-  left: 150px;
-  top: 325px;
+  width: 73.57142857%; /* 412/560 */
+  left: 26.78571429%; /* 150/560 */
+  top: 58.03571429%; /* 325/560 */
   transform: rotate(-14deg);
 }
 

@@ -21,6 +21,8 @@ var masonry,
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
+  sizeHeader();
+
   // Read in templates
   templateItem = $("#template-item").html();
   templateQuote = $("#template-quote").html();
@@ -132,6 +134,13 @@ $(window).scroll(function(event) {
     }
   }
 })
+
+$(window).resize(sizeHeader);
+
+function sizeHeader() {
+  var hed = $(".headline");
+  hed.css("height", hed.css("width"));
+}
 
 // fetch slices of items and return as jquery object
 // from http://codepen.io/desandro/pen/kwsJb
