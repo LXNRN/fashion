@@ -78,6 +78,8 @@
       <div class="dek">
         <%= item.dek %>
         <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-facebook"></i></a>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-pinterest"></i></a>
       </div>
       <% if(item.type == 'experiment') { %>
         <div class="poll unresolved" data-poll-id="<%= item.id %>">
@@ -111,6 +113,8 @@
     <div class="quote-credit">
       <%= item.credit %>
       <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-facebook"></i></a>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-pinterest"></i></a>
     </div>
   </div>
   </script>
