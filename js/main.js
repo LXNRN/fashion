@@ -237,9 +237,14 @@ $.fn.masonryImagesReveal = function( $items ) {
   var msnry = this.data('masonry');
   var itemSelector = msnry.options.itemSelector;
   // hide by default
+
+  // debugger
+
   $items.hide();
+
   // append to container
   this.append( $items );
+
   $items.imagesLoaded().progress( function( imgLoad, image ) {
     // get item
     // image is imagesLoaded class, not <img>, <img> is image.img
@@ -248,6 +253,14 @@ $.fn.masonryImagesReveal = function( $items ) {
     $item.show();
     // masonry does its thing
     msnry.appended( $item );
+  }).fail(function(instance) {
+
+    msnry.appended( $('.quote:hidden').show() );
+
+  }).done(function(instance) {
+
+    msnry.appended( $('.quote:hidden').show() );
+
   });
 
   return this;
