@@ -171,7 +171,7 @@ function shareTwitter(shareText, shareURL) {
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
       articleUrl = encodeURIComponent(shareURL),
-      url    = "http://twitter.com/share?text=" + text + "&url=" + articleUrl
+      url    = "http://twitter.com/share?text=" + text + "&url=" + articleUrl,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -195,7 +195,7 @@ function shareLinkedIn(shareText, shareURL) {
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
       articleUrl = encodeURIComponent(shareURL),
-      url    = "http://www.linkedin.com/shareArticle?summary=" + articleUrl
+      url    = "http://www.linkedin.com/shareArticle?summary=" + articleUrl,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -205,6 +205,30 @@ function shareLinkedIn(shareText, shareURL) {
   window.open(url, 'facebook', opts);
 
   return false;
+}
+
+function sharePinterest(shareText, shareUrl, shareImg) {
+  if (arguments.length == 1) {
+    shareUrl = document.URL;
+  }
+  event.preventDefault()
+  var textString = shareText
+  var text = encodeURIComponent(textString)
+  var img = encodeURIComponent(shareImg)
+  var width  = 550,
+      height = 420,
+      left   = ($(window).width()  - width)  / 2,
+      top    = ($(window).height() - height) / 2,
+      articleUrl = encodeURIComponent(shareUrl),
+      url    = "http://www.pinterest.com/pin/create/button/?url=" + articleUrl + "&media=" + img + "&description=" + text,
+      opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left;
+
+  window.open(url, 'pinterest', opts);
+
 }
 
 ////////////////
