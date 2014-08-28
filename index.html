@@ -37,15 +37,16 @@
   <header>
     <h1><a href="http://businessweek.com/">Bloomberg&#8203;Businessweek</a></h1>
     <div id="header-social">
-      <img class="popup-facebook social" href="#" src="img/facebook.png" alt="Share with friends on Facebook!" title="Share with friends on Facebook!">
-      <img class="popup-twitter social" href="#" src="img/twitter.png" alt="Share with followers on Twitter!" title="Share with followers on Twitter!">
-      <img class="popup-linkedin social" href="#" src="img/linkedin.png" alt="Share with potential employers on LinkedIn!" title="Share with potential employers on LinkedIn!">
+      <img class="popup-facebook social" href="#" src="img/social-facebook.png" alt="Share with friends on Facebook!" title="Share with friends on Facebook!">
+      <img class="popup-twitter social" href="#" src="img/social-twitter.png" alt="Share with followers on Twitter!" title="Share with followers on Twitter!">
+      <img class="popup-linkedin social" href="#" src="img/social-pinterest.png" alt="Share with potential employers on LinkedIn!" title="Share with potential employers on LinkedIn!">
     </div>
   </header>
 
   <div class="ad-wrapper">
     <div class='ad-div banner_ad non_blank_ad' id='leader_board'>
       <div class='gpt_ads_slot' id='top'>
+        <div class='sticker'><img src="img/sticker-ad-right.png"></div>
         <div class='gpt_ad_container' data-gpt-size='[[728, 90], [970, 66], [1, 1]]' data-original-position='leader_board' data-position='top' data-pt='t11' data-size='728x90,970x66,1x1' data-tile='1' data-tz='top'>
         </div>
       </div>
@@ -53,35 +54,53 @@
   </div>
 
   <div id="container">
-  <div class="item" style="background: none; border: 0"><img src="img/title.png" width="307" height="420"></div>
+
+    <div class="item headline">
+      <img src="img/00_headline1_small.png" class="title">
+      <img src="img/00_headline2_small.png" class="subtitle">
+      <img src="img/00_headline3_small.gif" class="figurehead">
+    </div>
+
   </div>
 
+  <div class="progressive-loading-indicator"><div><i class="fa fa-spinner fa-spin fa-3x"></i></div></div>
+
+  <footer>
+    <strong>Contributors:</strong> Shibon Kennedy (styling), Julie Simon (styling assistant), Alis Atwell, Arianne Cohen, Jaci Kessler, Emma Rosenblum, Peter Samuels, Kurt Soller
+  </footer>
+
   <script type="text/html" id="template-item">
-  <div id="<%= item.id %>" class="item <%= item.type %>">
-    <img src="<%= item.img %>">
+  <div id="<%= item.id %>" class="item <%= item.type %>" style="width: <%= item.imgSize.width %>px">
+    <!--<div class="sticker"></div>-->
+    <img src="img/<%= item.imgSmall %>" class="item-img">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
-      <div class="dek"><%= item.dek %></div>
-      <% if(item.type == 'could-you-wear-this') { %>
+      <div class="dek">
+        <%= item.dek %>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-facebook"></i></a>
+        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-pinterest"></i></a>
+      </div>
+      <% if(item.type == 'experiment') { %>
         <div class="poll unresolved" data-poll-id="<%= item.id %>">
           <div class="question">Could you wear this?</div>
           <div class="answers">
             <!-- Note that whitespace between yes and no will break layout due to inline-block -->
-            <div class="answer yes" data-answer-id="0"><div>
+            <div class="answer yes" data-answer-id="0"><div class="answer-inner">
               Yes&nbsp;<span class="percentage"></span>
               <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
-              <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
-            </div></div><div class="answer no" data-answer-id="1"><div>
+              <div class="tweet"><a href="#"><img src="img/social-tweet.png"></a></div>
+            </div></div><div class="answer no" data-answer-id="1"><div class="answer-inner">
               No&nbsp;<span class="percentage"></span>
               <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
-              <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
+              <div class="tweet"><a href="#"><img src="img/social-tweet.png"></a></div>
             </div></div>
           </div>
         </div>
       <% } %>
       <div class="credit">
-        <%= item.credit %>
-        <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+        <%= item.credit %><%= item.credit && item.photocredit ? ". " : "" %>
+        <%= item.photocredit %>
       </div>
     </div>
   </div>
@@ -94,6 +113,8 @@
     <div class="quote-credit">
       <%= item.credit %>
       <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-facebook"></i></a>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-pinterest"></i></a>
     </div>
   </div>
   </script>

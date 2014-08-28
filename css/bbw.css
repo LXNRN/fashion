@@ -2,16 +2,16 @@
 
 @font-face {
   font-family: 'BloombergLBold';
-    src: url("http://www.businessweek.com/assets/type/bloombergl_heavy.eot?#iefix") format('embedded-opentype'),
-       url('http://www.businessweek.com/assets/type/bloombergl_heavy.ttf') format('truetype');
+    src: url("../fonts/bloombergl_heavy.eot?#iefix") format('embedded-opentype'),
+       url('../fonts/bloombergl_heavy.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
   font-family:'BWHaasHead';
-  src: url('http://www.businessweek.com/assets/type/hinted/haas/bwhaasgroteskhead-95black.eot?#iefix') format('eot'),
-     url('http://www.businessweek.com/assets/type/hinted/haas/bwhaasgroteskhead-95black.woff') format('woff'),
-     url('http://www.businessweek.com/assets/type/haas/bwhaasgroteskhead-95black.ttf') format('truetype');
+  src: url('../fonts/bwhaasgroteskhead-95black.eot?#iefix') format('eot'),
+     url('../fonts/bwhaasgroteskhead-95black.woff') format('woff'),
+     url('../fonts/bwhaasgroteskhead-95black.ttf') format('truetype');
 
   font-style: normal;
   font-weight: 700;
@@ -19,18 +19,18 @@
 }
 @font-face {
   font-family:'BWHaasHead75Bold';
-  src: url('http://www.businessweek.com/assets/type/hinted/haas75/bwhaasgroteskhead-75bold.eot?#iefix') format('eot'),
-     url('http://www.businessweek.com/assets/type/hinted/haas75/bwhaasgroteskhead-75bold.woff') format('woff'),
-     url('http://www.businessweek.com/assets/type/haas75/bwhaasgrotesktext-75bold.ttf') format('truetype');
+  src: url('../fonts/bwhaasgroteskhead-75bold.eot?#iefix') format('eot'),
+     url('../fonts/bwhaasgroteskhead-75bold.woff') format('woff'),
+     url('../fonts/bwhaasgrotesktext-75bold.ttf') format('truetype');
   font-style: normal;
   font-weight: 700;
   font-stretch: normal;
 }
 @font-face {
   font-family:'BWHaasRegular';
-  src: url('http://www.businessweek.com/assets/web_fonts/bwhaasgroteskhead-65medium.eot?#iefix') format('eot'),
-     url('http://www.businessweek.com/assets/web_fonts/bwhaasgroteskhead-65medium.woff') format('woff'),
-     url('http://www.businessweek.com/assets/web_fonts/bwhaasgrotesktext-65medium.ttf') format('truetype');
+  src: url('../fonts/bwhaasgroteskhead-65medium.eot?#iefix') format('eot'),
+     url('../fonts/bwhaasgroteskhead-65medium.woff') format('woff'),
+     url('../fonts/bwhaasgrotesktext-65medium.ttf') format('truetype');
   font-style: normal;
   font-weight: 700;
   font-stretch: normal;
@@ -40,11 +40,11 @@
 /* Druk Medium */
 @font-face {
   font-family: 'Druk Web';
-  src: url('Druk-Medium-Web.eot');
-  src: url('Druk-Medium-Web.eot?#iefix') format('embedded-opentype'),
-     url('Druk-Medium-Web.woff') format('woff'),
-     url('Druk-Medium-Web.ttf') format('truetype'),
-     url('Druk-Medium-Web.svg#Druk Web') format('svg');
+  src: url('../fonts/Druk-Medium-Web.eot');
+  src: url('../fonts/Druk-Medium-Web.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/Druk-Medium-Web.woff') format('woff'),
+     url('../fonts/Druk-Medium-Web.ttf') format('truetype'),
+     url('../fonts/Druk-Medium-Web.svg#Druk Web') format('svg');
   font-weight:  500;
   font-style:   normal;
   font-stretch: normal;
@@ -52,11 +52,11 @@
 /* Druk Wide Super */
 @font-face {
   font-family: 'Druk Wide Web';
-  src: url('DrukWide-Super-Web.eot');
-  src: url('DrukWide-Super-Web.eot?#iefix') format('embedded-opentype'),
-     url('DrukWide-Super-Web.woff') format('woff'),
-     url('DrukWide-Super-Web.ttf') format('truetype'),
-     url('DrukWide-Super-Web.svg#Druk Wide Web') format('svg');
+  src: url('../fonts/DrukWide-Super-Web.eot');
+  src: url('../fonts/DrukWide-Super-Web.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/DrukWide-Super-Web.woff') format('woff'),
+     url('../fonts/DrukWide-Super-Web.ttf') format('truetype'),
+     url('../fonts/DrukWide-Super-Web.svg#Druk Wide Web') format('svg');
   font-weight:  900;
   font-style:   normal;
   font-stretch: normal;
@@ -65,7 +65,7 @@
 /* HEADER */
 
 body {
-  background-image: url(../img/bg.png);
+  background-image: url(../img/bg_large.png);
   background-size: 409px 409px;
 }
 
@@ -77,7 +77,7 @@ header {
 
 h1 {
   display: inline-block;
-  margin: 0;
+  margin: 5px 0;
   font-family: 'BWHaasHead';
   font-size: 2em;
   line-height: 0.8em;
@@ -92,27 +92,51 @@ h1 a {
   display: inline-block;
   float: right;
   cursor: pointer;
+  margin-top: -2px;
 }
 
 #header-social .social{
   display: inline-block;
   vertical-align: top;
-  height: 50px;
+  height: 40px;
+  width: 40px;
+  transition: transform .2s;
+}
+
+#header-social .social:hover {
+  transform: rotate(10deg);
 }
 
 #header-social a {
   display: inline-block;
 }
 
+.progressive-loading-indicator {
+  clear: both;
+  width: 100%;
+}
+.progressive-loading-indicator div {
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 25px;
+  text-align: center;
+}
+
+footer {
+  border-top: 2px solid black;
+  font-family: times;
+  background: white;
+  padding: 20px 10px;
+  font-size: 10pt;
+}
+
 /* ADS */
 
 .ad-wrapper {
   height: 90px;
-  background: white;
-  border-bottom: 2px solid black;
   padding: 10px;
-
-  background-image: url(../img/ad.png);
   background-size: 50px 50px;
 }
 
@@ -121,37 +145,114 @@ h1 a {
   margin: 0 auto;
 }
 
+.gpt_ads_slot {
+  position: relative;
+}
+
+.gpt_ads_slot .sticker {
+  position: absolute;
+  right: -100px;
+}
+
+.gpt_ads_slot .sticker img {
+  width: 100px;
+}
+
+/* HEADLINE */
+
+.item.headline {
+  background: none;
+  border: 0;
+  width: 560px;
+  height: 560px;
+}
+
+.headline img {
+  transition: transform .2s;
+}
+
+.headline .figurehead {
+  position: absolute;
+  width: 35.71428571%; /* 200/560 */
+  top: 8.928571429%; /* -50/560 */
+}
+
+.headline .figurehead:hover {
+  transform: rotate(-4deg);
+}
+
+.headline .title {
+  position: absolute;
+  width: 67.5%; /* 378/560 */
+  top: 8.928571429%; /* 50/560 */
+  left: 26.78571429%; /* 150/560 */
+  transform: rotate(14deg);
+}
+
+.headline .title:hover {
+  transform: rotate(10deg);
+}
+
+.headline .subtitle {
+  position: absolute;
+  width: 73.57142857%; /* 412/560 */
+  left: 26.78571429%; /* 150/560 */
+  top: 58.03571429%; /* 325/560 */
+  transform: rotate(-14deg);
+}
+
+.headline .subtitle:hover {
+  transform: rotate(-16deg);
+}
+
 /* STUFF */
 
 #container {
-  padding: 10px 0 0 10px;
+  margin: 10px;
 }
 
 .item {
   margin: 0 10px 10px 0;
+  box-sizing: border-box;
+  max-width: 100%;
   float: left;
   position: relative;
   background: white;
   transition: -webkit-transform 0.2s;
-  display: table;
   border: 2px solid black;
   font-family: times;
   font-size: 10pt;
   background: white;
+  display: inline-block;
 }
 
-.item img {
-  max-width: 100%;
+.item .item-img {
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 .caption {
-  display:table-caption;
-  caption-side:bottom;
   padding: 10px;
-  border: 2px solid black;
   border-top-width: 0;
   line-height: 12pt;
   background: white;
+}
+
+.item .sticker {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+}
+
+.item.brand .sticker {
+  background-image: url(../img/stickers/brand.png);
+}
+
+.item.guide .sticker {
+  background-image: url(../img/stickers/guide.png);
 }
 
 .hed {
@@ -228,7 +329,7 @@ h1 a {
   font-weight: bold;
 }
 
-.poll.unresolved .answer div {
+.poll.unresolved .answer-inner {
   cursor: pointer;
 }
 
@@ -239,14 +340,14 @@ h1 a {
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.answer div {
+.answer-inner {
   border: 2px solid black;
   text-transform: uppercase;
   overflow: hidden;
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.poll.unresolved .answer:hover div, .poll.resolved .answer.selected div {
+.poll.unresolved .answer:hover .answer-inner, .poll.resolved .answer.selected .answer-inner {
   color: white;
   background: black;
 }
@@ -255,7 +356,7 @@ h1 a {
   font-weight: normal;
 }
 
-.answer div {
+.answer-inner {
   padding: 5px;
 }
 
@@ -272,6 +373,7 @@ h1 a {
 }
 
 .tweet{
+  background: none;
   position: absolute;
   left: 50%;
   bottom: 110%;
@@ -279,15 +381,26 @@ h1 a {
   display: none;
 }
 .tweet a {
+  background: none;
   color: inherit;
 }
 .tweet:hover {
-  background: black;
-  color: white;
+  background: none;
   cursor: pointer;
 }
 .tweet:hover a {
+  background: none;
   color: white;
+}
+
+.tweet img {
+  transition: transform .2s;
+  width: 50px;
+  height: 50px;
+}
+
+.tweet:hover img {
+  transform: rotate(10deg);
 }
 
 /* RESPONSIVENESS */
@@ -301,5 +414,15 @@ h1 a {
 @media (max-width: 600px) {
   #header-social {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #header-social {
+    display: none;
+  }
+
+  .headline {
+    overflow: hidden;
   }
 }
