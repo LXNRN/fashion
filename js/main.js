@@ -209,7 +209,11 @@ $(window).scroll(function(event) {
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() == $(document).height()) {
     var $items = getItems($("#container").children().length-1, 10);
-    $container.masonryImagesReveal($items);
+    if($items.length != 0) {
+      $container.masonryImagesReveal($items);
+    } else {
+      $(".progressive-loading-indicator").hide();
+    }
   }
 })
 
