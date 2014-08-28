@@ -136,17 +136,26 @@ footer {
 
 .ad-wrapper {
   height: 90px;
-  /*background: white;*/
-  /*border-bottom: 2px solid black;*/
   padding: 10px;
-
-  /*background-image: url(../img/ad.png);*/
   background-size: 50px 50px;
 }
 
 .ad-div {
   width: 728px;
   margin: 0 auto;
+}
+
+.gpt_ads_slot {
+  position: relative;
+}
+
+.gpt_ads_slot .sticker {
+  position: absolute;
+  right: -100px;
+}
+
+.gpt_ads_slot .sticker img {
+  width: 100px;
 }
 
 /* HEADLINE */
@@ -229,7 +238,7 @@ footer {
   background: white;
 }
 
-.sticker {
+.item .sticker {
   position: absolute;
   top: -60px;
   left: -60px;
@@ -238,11 +247,11 @@ footer {
   background-size: contain;
 }
 
-.brand .sticker {
+.item.brand .sticker {
   background-image: url(../img/stickers/brand.png);
 }
 
-.guide .sticker {
+.item.guide .sticker {
   background-image: url(../img/stickers/guide.png);
 }
 
