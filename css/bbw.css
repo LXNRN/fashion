@@ -154,26 +154,30 @@ footer {
 .item.headline {
   background: none;
   border: 0;
-  width: 500px;
-  height: 400px;
+  width: 550px;
+  height: 600px;
 }
 
 .headline .figurehead {
   position: absolute;
-  width: 175px;
+  width: 200px;
+  top: -50px;
 }
 
 .headline .title {
   position: absolute;
-  width: 275px;
+  width: 378px;
+  top: 50px;
   left: 150px;
+  transform: rotate(14deg);
 }
 
 .headline .subtitle {
   position: absolute;
-  width: 275px;
+  width: 412px;
   left: 150px;
-  top: 200px;
+  top: 325px;
+  transform: rotate(-14deg);
 }
 
 /* STUFF */
