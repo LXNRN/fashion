@@ -71,7 +71,7 @@
   <script type="text/html" id="template-item">
   <div id="<%= item.id %>" class="item <%= item.type %>">
     <!--<div class="sticker"></div>-->
-    <img src="img/<%= item.imgSmall %>">
+    <img src="img/<%= item.imgSmall %>" class="item-img">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
       <div class="dek">
@@ -83,14 +83,14 @@
           <div class="question">Could you wear this?</div>
           <div class="answers">
             <!-- Note that whitespace between yes and no will break layout due to inline-block -->
-            <div class="answer yes" data-answer-id="0"><div>
+            <div class="answer yes" data-answer-id="0"><div class="answer-inner">
               Yes&nbsp;<span class="percentage"></span>
               <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
               <div class="tweet"><a href="#"><img src="img/social-tweet.png"></a></div>
-            </div></div><div class="answer no" data-answer-id="1"><div>
+            </div></div><div class="answer no" data-answer-id="1"><div class="answer-inner">
               No&nbsp;<span class="percentage"></span>
               <span class="progress"><i class="fa fa-spinner fa-spin"></i></span>
-              <div class="tweet"><a href="#"><i class="fa fa-twitter"></i></a></div>
+              <div class="tweet"><a href="#"><img src="img/social-tweet.png"></a></div>
             </div></div>
           </div>
         </div>

@@ -215,7 +215,7 @@ footer {
   background: white;
 }
 
-.item img {
+.item .item-img {
   max-width: 100%;
 }
 
@@ -320,7 +320,7 @@ footer {
   font-weight: bold;
 }
 
-.poll.unresolved .answer div {
+.poll.unresolved .answer-inner {
   cursor: pointer;
 }
 
@@ -331,14 +331,14 @@ footer {
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.answer div {
+.answer-inner {
   border: 2px solid black;
   text-transform: uppercase;
   overflow: hidden;
   transition: width .1s linear, border-radius .1s linear, padding .1s linear;
 }
 
-.poll.unresolved .answer:hover div, .poll.resolved .answer.selected div {
+.poll.unresolved .answer:hover .answer-inner, .poll.resolved .answer.selected .answer-inner {
   color: white;
   background: black;
 }
@@ -347,7 +347,7 @@ footer {
   font-weight: normal;
 }
 
-.answer div {
+.answer-inner {
   padding: 5px;
 }
 
@@ -368,7 +368,6 @@ footer {
   position: absolute;
   left: 50%;
   bottom: 110%;
-  transition: transform .2s;
   transform: translate(-50%,0);
   display: none;
 }
@@ -383,6 +382,12 @@ footer {
 .tweet:hover a {
   background: none;
   color: white;
+}
+
+.tweet img {
+  transition: transform .2s;
+  width: 50px;
+  height: 50px;
 }
 
 .tweet:hover img {
