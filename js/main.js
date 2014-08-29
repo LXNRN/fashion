@@ -193,13 +193,8 @@ function updateParallax() {
   $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
 }
 
-var throttleParallax = _.throttle(updateParallax, 0)
-
-$(window).scroll(function(event) {
-
-  // terrible janky width-dependent (?!) parallax background scroll
-  updateParallax()
-  // when you hit the bottom, load more
+function masonryReveal() {
+  console.log('scroll test')
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
     var $items = getItems($("#container").children().length-1, progLoadLimit);
     if($items.length != 0) {
@@ -210,11 +205,26 @@ $(window).scroll(function(event) {
       $(".progressive-loading-indicator").hide();
     }
   }
+}
+
+var throttleMasonry = _.throttle(masonryReveal, 500)
+
+var throttleParallax = _.throttle(updateParallax, 0)
+
+$(window).scroll(function(event) {
+  window.requestAnimationFrame(updateParallax)
+  window.requestAnimationFrame(throttleMasonry)
+
+
+  // terrible janky width-dependent (?!) parallax background scroll
+  // updateParallax()
+  // when you hit the bottom, load more
 })
 
 $(window).resize(sizeHeader);
 
 function sizeHeader() {
+  console.log('sizeheader')
   var hed = $(".headline");
   hed.css("height", hed.css("width"));
 }

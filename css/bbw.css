@@ -66,7 +66,8 @@
 
 body {
   background-image: url(../img/bg_large.png);
-  background-size: 409px 409px;
+  /*background-size: 409px 409px;*/
+  /*transform: translateZ(0);*/
 }
 
 header {
