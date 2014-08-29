@@ -110,28 +110,28 @@ function analytics(meta) {
   comscore.track(urlHash)
   comscore.trackPageview()
 
-  var _sf_async_config= {uid: 15087, domain: "www.businessweek.com"};
-  _sf_async_config.useCanonical = true;
+  // var _sf_async_config= {uid: 15087, domain: "www.businessweek.com"};
+  // _sf_async_config.useCanonical = true;
 
-  _sf_async_config.sections = meta.section;
-  _sf_async_config.authors = meta.author;
-  _sf_async_config.path = window.location.pathname; //Removes query parameters
-  _sf_async_config.title = meta.title;
+  // _sf_async_config.sections = meta.section;
+  // _sf_async_config.authors = meta.author;
+  // _sf_async_config.path = window.location.pathname; //Removes query parameters
+  // _sf_async_config.title = meta.title;
 
 
-  (function(){
-    function loadChartbeat() {
-      window._sf_endpt=(new Date()).getTime();
-      var e = document.createElement('script');
-      e.setAttribute('language', 'javascript');
-      e.setAttribute('type', 'text/javascript');
-      e.setAttribute('src',
-        (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "static.chartbeat.com/js/chartbeat_pub.js");
-      document.body.appendChild(e);
-    }
-    var oldonload = window.onload;
-    window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
-  })();
+  // (function(){
+  //   function loadChartbeat() {
+  //     window._sf_endpt=(new Date()).getTime();
+  //     var e = document.createElement('script');
+  //     e.setAttribute('language', 'javascript');
+  //     e.setAttribute('type', 'text/javascript');
+  //     e.setAttribute('src',
+  //       (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "static.chartbeat.com/js/chartbeat_pub.js");
+  //     document.body.appendChild(e);
+  //   }
+  //   var oldonload = window.onload;
+  //   window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  // })();
 }
 
 /////////////

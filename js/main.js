@@ -240,7 +240,6 @@ $(window).scroll(function(event) {
 $(window).resize(sizeHeader);
 
 function sizeHeader() {
-  console.log('sizeheader')
   var hed = $(".headline");
   hed.css("height", hed.css("width"));
 }
