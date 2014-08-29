@@ -123,6 +123,10 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
 
   var pollCookieId = $(event.target).parents('.item').attr('id');
 
+  ga('send', 'event', 'poll', 'click', 'poll-click-' + pollCookieId);
+  ga('fashion.send', 'event', 'poll', 'click', 'poll-click-' + pollCookieId);
+
+
   var poll = $(event.target).closest('.poll');
   var answer = $(event.target).closest('.answer');
   var answerValue = answer.hasClass('yes');
@@ -208,18 +212,25 @@ function masonryReveal() {
       $container.masonryImagesReveal($items);
     } else {
       // nothing more to load, hide spinner
+      allItemsRevealed = true
       $(".progressive-loading-indicator").hide();
+      ga('send', 'event', 'item-reveal', 'scroll', 'fashion-finish');
+      ga('fashion.send', 'event', 'item-reveal', 'scroll', 'fashion-finish');
+
     }
   }
 }
 
 var throttleMasonry = _.throttle(masonryReveal, 500)
-
 var throttleParallax = _.throttle(updateParallax, 0)
+var allItemsRevealed = false
 
 $(window).scroll(function(event) {
   window.requestAnimationFrame(updateParallax)
-  window.requestAnimationFrame(throttleMasonry)
+
+  if(allItemsRevealed === false) {
+    window.requestAnimationFrame(throttleMasonry)  
+  }
 
 
   // terrible janky width-dependent (?!) parallax background scroll
@@ -305,6 +316,10 @@ function getImageSize(src, item, callback) {
 // Social for individual items
 function setShareHandlers() {
   $('.fa-twitter').click(function(event) {
+    var itemId = $(event.target).parent().attr('href').split('#')[1]
+    ga('send', 'event', 'share', 'click', 'twitter-' + itemId);
+    ga('fashion.send', 'event', 'share', 'click', 'twitter-' + itemId);
+
     var quote = $(event.target).parents('.quote')
     var content = quote.find('.quote-content').text()
     var attribution = quote.find('.quote-attribution').text()
@@ -316,6 +331,10 @@ function setShareHandlers() {
   })
 
   $('.fa-pinterest').click(function(event) {
+    var itemId = $(event.target).parent().attr('href').split('#')[1]
+    ga('send', 'event', 'share', 'click', 'pinterest-' + itemId);
+    ga('fashion.send', 'event', 'share', 'click', 'pinterest-' + itemId);
+
     var target = $(event.target)
     var url = document.URL + target.parent().attr('href');
     var shareText = target.closest('.caption').find('.hed').text();
