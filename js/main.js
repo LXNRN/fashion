@@ -198,7 +198,7 @@ var throttleParallax = _.throttle(updateParallax, 0)
 $(window).scroll(function(event) {
 
   // terrible janky width-dependent (?!) parallax background scroll
-  throttleParallax()
+  updateParallax()
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
     var $items = getItems($("#container").children().length-1, progLoadLimit);
@@ -245,6 +245,8 @@ $.fn.masonryImagesReveal = function( $items ) {
     $container.masonry( 'appended', $items );
   });
 
+  setShareHandlers()
+
   return this;
 };
 
@@ -278,7 +280,7 @@ function setShareHandlers() {
     var content = quote.find('.quote-content').text()
     var attribution = quote.find('.quote-attribution').text()
     var credit = quote.find('.quote-credit').text().trim()
-    var shareText = content + ' -' + attribution + ' ' + credit
+    var shareText = content + ' -' + attribution + ', ' + credit
     var url = document.URL
     shareTwitter(shareText, url)
     return false
