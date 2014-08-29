@@ -105,7 +105,7 @@ $( document ).ready(function() {
   $('.popup-twitter').click(function() {shareTwitter(meta.shareText) } );
   $('.popup-linkedin').click(function() { shareLinkedIn(meta.shareText) } );
   $('.popup-facebook').click(function() { shareFacebook(meta.shareText) } );
-  $('.popup-pinterest').click(function() {sharePinterest(meta.shareText) } );
+  $('.popup-pinterest').click(function() {sharePinterest(meta.shareText, document.URL, 'https://s3-us-west-2.amazonaws.com/graphics-images/og-img.png') } );
 
   // Post-poll tweet (delegated event)
   $(document).on("click", ".poll .answer .tweet", function(event) {
