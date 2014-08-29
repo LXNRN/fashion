@@ -1,3 +1,5 @@
+'use strict';
+
 var meta = {
   site: "businessweek", // e.g. "businessweek"
   author: "Kurt Soller", // e.g. "Claire Suddath"
@@ -73,6 +75,7 @@ var progLoadBuffer = 200,
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
+
   sizeHeader();
 
   // Read in templates
@@ -106,10 +109,13 @@ $( document ).ready(function() {
   // the unbearable weight of ANALYTICS OR IT DIDN'T HAPPEN!!!
   analytics(meta);
 
+
 });
 
 // delegated event, so it stays "live" (won't fire after poll is resolved)
 $(document).on("click", ".poll.unresolved .answer", function(event) {
+
+  var pollCookieId = $(event.target).parents('.item').attr('id');
 
   var poll = $(event.target).closest('.poll');
   var answer = $(event.target).closest('.answer');
@@ -123,7 +129,7 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
   answer.find('.progress').show();
 
   // send request to poll server
-  postData = {
+  var postData = {
     app: 'fashion2014',
     questionId: poll.data('poll-id'),
     text: 'Could you wear this?',
@@ -133,15 +139,26 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
     ]
   }
 
-  $.post("http://bw-poll-server.herokuapp.com/api/vote", postData, function(returnData) {
+  if(docCookies.getItem("fashion-poll-" + pollCookieId)) {
+    $.get("http://bw-poll-server.herokuapp.com/api/" + postData.app + "/" + postData.questionId, function(returnData) {
+      processPollResponse(returnData)
+    }, 'json');
+  } else {
+    $.post("http://bw-poll-server.herokuapp.com/api/vote", postData, function(returnData) {
+      docCookies.setItem("fashion-poll-" + pollCookieId, "voted");
+      processPollResponse(returnData);
+    }, 'json');
+  }
 
+
+  function processPollResponse(returnData) {
     answer.find('.progress').hide();
 
-    voteSum = returnData.question.answers.reduce(function(prev, value) { return prev + value.votes; }, 0);
-    tally = [];
+    var voteSum = returnData.question.answers.reduce(function(prev, value) { return prev + value.votes; }, 0);
+    var tally = [];
     returnData.question.answers.forEach(function(answer) {
-      percentage = Math.round((answer.votes/voteSum)*100);
-      answerEl = poll.find('[data-answer-id="'+answer.id+'"]');
+      var percentage = Math.round((answer.votes/voteSum)*100);
+      var answerEl = poll.find('[data-answer-id="'+answer.id+'"]');
       answerEl.css("width", percentage+"%");
       if(percentage==0) { answerEl.hide(); }
       answerEl.find(".percentage").text(percentage+"%");
@@ -151,24 +168,23 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
     if(tally['Yes'] > 50) {
       if(answerValue) {
         // majority would wear, including user
-        shareText = "I would wear this to work. Would you?";
+        var shareText = "I would wear this to work. Would you?";
       } else {
         // majority would wear, but user wouldn't
-        shareText = "I can't believe people would go to work like this. I would never!";
+        var shareText = "I can't believe people would go to work like this. I would never!";
       }
     } else {
       if(answerValue) {
         // majority wouldn't wear, but user would
-        shareText = "I can't believe people wouldn't wear this. I would!";
+        var shareText = "I can't believe people wouldn't wear this. I would!";
       } else {
         // majority wouldn't wear, including user
-        shareText = "Yeah, no one should wear this to work.";
+        var shareText = "Yeah, no one should wear this to work.";
       }
     }
 
     answer.find(".tweet").show().data("shareText", shareText);
-
-  }, 'json');
+  }
 
 })
 
@@ -248,4 +264,27 @@ function getImageSize(src, item, callback) {
   img.onload = function() {
     callback(item, {width: img.width, height: img.height});
   };
+}
+
+// Social for individual items
+function setShareHandlers() {
+  $('.fa-twitter').click(function(event) {
+    var quote = $(event.target).parents('.quote')
+    var content = quote.find('.quote-content').text()
+    var attribution = quote.find('.quote-attribution').text()
+    var credit = quote.find('.quote-credit').text().trim()
+    var shareText = content + ' -' + attribution + ' ' + credit
+    var url = document.URL
+    shareTwitter(shareText, url)
+    return false
+  })
+
+  $('.fa-pinterest').click(function(event) {
+    var target = $(event.target)
+    var url = document.URL + target.parent().attr('href');
+    var shareText = target.closest('.caption').find('.hed').text();
+    var img = document.URL.split('#')[0] + target.closest('.item').find('img').attr('src')
+    sharePinterest(shareText, url, img)
+    return false
+  })
 }
