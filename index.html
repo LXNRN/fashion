@@ -77,7 +77,7 @@
   </footer>
 
   <script type="text/html" id="template-item">
-  <div id="<%= item.id %>" class="item <%= item.type %>" style="width: <%= item.imgSize.width %>px">
+  <div id="<%= item.id %>" class="item <%= item.type %>" style="width: <%= item.imgWidth %>px">
     <!--<div class="sticker"></div>-->
     <img src="img/<%= item.imgSmall %>" class="item-img">
     <div class="caption">
@@ -119,8 +119,7 @@
     <div class="quote-credit">
       <%= item.credit %>
       <a href="#<%= item.id %>" class="permalink"><i class="fa fa-link"></i></a>
-      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-facebook"></i></a>
-      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-pinterest"></i></a>
+      <a href="#<%= item.id %>" class="permalink"><i class="fa fa-twitter"></i></a>
     </div>
   </div>
   </script>
@@ -132,6 +131,7 @@
   <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
   <script src="js/vendor/krux.js"></script>
   <script src="js/vendor/docCookies.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
   <script src="js/comscore.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
