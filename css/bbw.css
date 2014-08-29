@@ -125,6 +125,7 @@ h1 a {
 }
 
 footer {
+  clear: both;
   border-top: 2px solid black;
   font-family: times;
   background: white;
