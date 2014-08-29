@@ -309,7 +309,7 @@ function setShareHandlers() {
     var content = quote.find('.quote-content').text()
     var attribution = quote.find('.quote-attribution').text()
     var credit = quote.find('.quote-credit').text().trim()
-    var shareText = content + ' -' + attribution + ', ' + credit
+    var shareText = content + ' —' + attribution + ', ' + credit
     var url = document.URL
     shareTwitter(shareText, url)
     return false
