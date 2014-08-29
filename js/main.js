@@ -204,7 +204,6 @@ function updateParallax() {
 }
 
 function masonryReveal() {
-  console.log('scroll test')
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
     var $items = getItems($("#container").children().length-1, progLoadLimit);
     if($items.length != 0) {
