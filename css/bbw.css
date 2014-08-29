@@ -175,7 +175,8 @@ footer {
 .headline .figurehead {
   position: absolute;
   width: 35.71428571%; /* 200/560 */
-  top: 8.928571429%; /* -50/560 */
+  top: -10%; /* -50/560 */
+  z-index: 99;
 }
 
 .headline .figurehead:hover {
@@ -422,8 +423,12 @@ footer {
   #header-social {
     display: none;
   }
+}
 
-  .headline {
-    overflow: hidden;
+@media (max-width: 400px) {
+  .item {
+    display: block;
+    float: none;
+    margin: 10px auto;
   }
 }
