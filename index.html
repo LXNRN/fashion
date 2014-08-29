@@ -7,7 +7,7 @@
   <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>What to Wear to The Office This Fall – Businessweek</title>
+  <title>What to Wear to the Office This Fall – Businessweek</title>
   <meta name="description" content="Fifty style upgrades for every budget and workplace dress code">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="photo">
   <meta name="twitter:site" content="businessweek">
   <meta name="twitter:creator" content="kurtsoller">
-  <meta name="twitter:title" content="What to Wear to The Office This Fall">
+  <meta name="twitter:title" content="What to Wear to the Office This Fall">
   <meta name="twitter:description" content="Fifty style upgrades for every budget and workplace dress code" />
   <meta name="twitter:domain" content="http://www.businessweek.com/">
   <!--<meta name="twitter:image" content="">
@@ -23,7 +23,7 @@
   <meta name="twitter:image:height" content="100">-->
 
   <!-- Facebook -->
-  <meta property="og:title" content="What to Wear to The Office This Fall" />
+  <meta property="og:title" content="What to Wear to the Office This Fall" />
   <meta property="og:description" content="Fifty style upgrades for every budget and workplace dress code" />
   <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/graphics-images/og-img.png">
   <!--<meta name='og:image' content=''>-->
@@ -37,8 +37,10 @@
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/h5bp.css">
   <link rel="stylesheet" href="css/bbw.css">
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
+  <!-- Blocking JavaScript -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/picturefill/2.0.0/picturefill.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
 
   <!-- Google Analytics -->
   <script>
@@ -82,9 +84,9 @@
   <div id="container">
 
     <div class="item headline">
-      <img src="img/00_headline1_small.png" class="title">
-      <img src="img/00_headline2_small.png" class="subtitle">
-      <img src="img/00_headline3_small.gif" class="figurehead">
+      <img class="title"      src="img/00_headline1_small.png" srcset="img/00_headline1_small.png, img/00_headline1_large.png 2x" alt="What to Wear to the Office This Fall">
+      <img class="subtitle"   src="img/00_headline2_small.png" srcset="img/00_headline2_small.png, img/00_headline2_large.png 2x" alt="Fifty style upgrades for every budget and workplace dress code">
+      <img class="figurehead" src="img/00_headline3_small.gif" srcset="img/00_headline3_small.gif, img/00_headline3_large.gif 2x" alt="Photograph by B. Blanchet for Bloomberg Businessweek; Hair and makeup: Kyle Malone/Exclusive Artists">
     </div>
 
   </div>
@@ -98,8 +100,7 @@
 
   <script type="text/html" id="template-item">
   <div id="<%= item.id %>" class="item <%= item.type %>" style="width: <%= item.imgWidth %>px">
-    <!--<div class="sticker"></div>-->
-    <img src="img/<%= item.imgSmall %>" class="item-img">
+    <img src="img/<%= item.imgSmall %>" srcset="img/<%= item.imgSmall %>, img/<%= item.imgLarge %> 2x" alt="<%= item.hed %>" class="item-img">
     <div class="caption">
       <div class="hed"><%= item.hed %></div>
       <div class="dek">
