@@ -59,7 +59,20 @@ var data = [
 {"spread":6,"id":49,"type":"general","hed":"Statement Belts","dek":"Clasp this Marni beauty ($300)—or one of the more affordable options in stores—around your waist to give new life to a work dress you've been wearing forever.","credit":"","photocredit":"Photograph by Eva O’Leary for Bloomberg Businessweek; soft-goods stylist: John Olsen","imgType":"png","imgSmall":"49_small.png","imgLarge":"49_large.png","imgWidth":216,"imgHeight":195},
 {"spread":6,"id":50,"type":"general","hed":"The Way We Shop Next","dek":"Retail companies are obsessed with getting mobile commerce right. No one's nailed it. Spring, an app released in August, may get closer to persuading customers to buy designer items on their phones. Its clean, easy-to-navigate interface resembles Instagram, and any fashion brand can sign up for an account. Goods are displayed one by one in pictures that are more aspirationally pretty than those on traditional e-commerce sites. Shoppers can follow their favorite labels—Michael Kors, Derek Lam, and almost 500 others have joined up—and, when they see something they like, snag it with the swipe of a finger. (Goodbye, digital shopping cart.) The app takes a cut, but it's a smaller percentage for companies that offer free shipping and easy returns. Suddenly, spending real money feels like a game. Download at your own risk—it's really fun.","credit":"","photocredit":"Photograph by Jody Rogac for Bloomberg Businessweek","imgType":"png","imgSmall":"50_small.png","imgLarge":"50_large.png","imgWidth":266,"imgHeight":295}
 ];
-data = _.shuffle(data);
+
+// shuffle all but first and last element
+data = data.slice(0,1).concat(
+       _.shuffle(data.slice(1,data.length-1)),
+       data.slice(data.length-1,data.length));
+
+// permalink: show linked item first
+if(location.hash) {
+  data.forEach(function(value, index) {
+    if(value.id == location.hash.split("#")[1]) {
+      data.unshift(data.splice(index, 1)[0]);
+    }
+  });
+}
 
 var $container,
     templateItem,
