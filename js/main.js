@@ -65,6 +65,15 @@ data = data.slice(0,1).concat(
        _.shuffle(data.slice(1,data.length-1)),
        data.slice(data.length-1,data.length));
 
+// permalink: show linked item first
+if(location.hash) {
+  data.forEach(function(value, index) {
+    if(value.id == location.hash.split("#")[1]) {
+      data.unshift(data.splice(index, 1)[0]);
+    }
+  });
+}
+
 var $container,
     templateItem,
     templateQuote;
