@@ -139,12 +139,17 @@ $(document).on("click", ".poll.unresolved .answer", function(event) {
 
 })
 
+function updateParallax() {
+  var y = $(window).scrollTop();
+  $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
+}
+
+var throttleParallax = _.throttle(updateParallax, 0)
+
 $(window).scroll(function(event) {
 
   // terrible janky width-dependent (?!) parallax background scroll
-  var y = $(window).scrollTop();
-  $("body").css("background-position", "0% " + (y/parallaxRate)+"%");
-
+  throttleParallax()
   // when you hit the bottom, load more
   if($(window).scrollTop() + $(window).height() > $(document).height() - progLoadBuffer) {
     var $items = getItems($("#container").children().length-1, progLoadLimit);
