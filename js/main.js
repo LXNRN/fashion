@@ -81,28 +81,21 @@ var $container,
 // misc. parameters
 var progLoadBuffer = 200,
     progLoadLimit = 10,
-    parallaxRate = 100;
+    parallaxRate = 100,
+    masonryMinWidth = 401;
 
 ///////////////////////////////////////////////////
 
 $( document ).ready(function() {
   if(inIframe()) $("body").addClass("iframed");
 
-
   sizeHeader();
-
-  // Read in templates
+  $container = $('#container');
   templateItem = $("#template-item").html();
   templateQuote = $("#template-quote").html();
 
   // MASONRY (once images load)
-  $container = $('#container').masonry({
-    itemSelector: '.item',
-    columnWidth: 1,
-    transitionDuration: 0,
-    hiddenStyle: { opacity: 0 },
-    visibleStyle: { opacity: 1 }
-  });
+  if($(window).width() >= masonryMinWidth) { initializeMasonry(); }
 
   // Load the initial 10 (kinda duplicate code...)
   var $items = getItems($("#container").children().length-1, progLoadLimit);
@@ -254,14 +247,27 @@ $.fn.masonryImagesReveal = function( $items ) {
   this.append( $items );
 
   // when all images have loaded, lay out the new batch
-  $items.imagesLoaded().done(function(instance) {
-    $container.masonry( 'appended', $items );
-  });
+  if($(window).width() >= masonryMinWidth) {
+    if(!$container.data('masonry')) { initializeMasonry(); }
+    $items.imagesLoaded().done(function(instance) {
+      $container.masonry( 'appended', $items );
+    });
+  }
 
   setShareHandlers()
 
   return this;
 };
+
+function initializeMasonry() {
+  $container.masonry({
+    itemSelector: '.item',
+    columnWidth: 1,
+    transitionDuration: 0,
+    hiddenStyle: { opacity: 0 },
+    visibleStyle: { opacity: 1 }
+  });
+}
 
 // for when assets change, utility functions to automatically grab photo sizes
 // should then bake sizes into json

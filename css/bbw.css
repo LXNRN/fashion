@@ -423,8 +423,12 @@ footer {
   #header-social {
     display: none;
   }
+}
 
-  .headline {
-    /*overflow: hidden;*/
+@media (max-width: 400px) {
+  .item {
+    display: block;
+    float: none;
+    margin: 10px auto;
   }
 }
