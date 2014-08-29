@@ -142,17 +142,17 @@ https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbuswk.co%2F1tefWiG&t=H
 
 function shareFacebook(shareText, shareURL) {
   if (arguments.length == 1) {
-    var url = document.URL;
+    shareURL = document.URL;
   }
   event.preventDefault()
-  var url = encodeURIComponent(shareURL)
+  var url = encodeURIComponent(document.URL)
   var textString = shareText
   var text = encodeURIComponent(textString)
   var width  = 575,
       height = 400,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = "http://www.facebook.com/sharer/sharer.php?u=" + url + "&t=" + text,
+      url    = "http://www.facebook.com/sharer/sharer.php?u=" + url,
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
