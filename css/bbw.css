@@ -153,11 +153,11 @@ footer {
 
 .gpt_ads_slot .sticker {
   position: absolute;
-  right: -100px;
+  left: -120px;
 }
 
 .gpt_ads_slot .sticker img {
-  width: 100px;
+  width: 120px;
 }
 
 /* HEADLINE */
