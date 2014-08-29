@@ -8,7 +8,7 @@ var meta = {
   title: "What to Wear to The Office This Fall", // e.g. "Can women ever win at work?"
   description: "Fifty style upgrades for every budget and workplace dress code",
   pubDate: "20140828", // e.g. "20140825"
-  shareText: "Omg I love clothes"
+  shareText: "Updating your work wardrobe? Check out @BW’s fall style guide for this season’s dos and don’ts: http://buswk.co/1lwTa3h #BWFallFashion"
 };
 
 var data = [
