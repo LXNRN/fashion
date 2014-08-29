@@ -259,7 +259,7 @@ $.fn.masonryImagesReveal = function( $items ) {
   // when all images have loaded, lay out the new batch
   if($(window).width() >= masonryMinWidth) {
     if(!$container.data('masonry')) { initializeMasonry(); }
-    $items.imagesLoaded().done(function(instance) {
+    $items.imagesLoaded().always(function(instance) {
       $container.masonry( 'appended', $items );
     });
   }
